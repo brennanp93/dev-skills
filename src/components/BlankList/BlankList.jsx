@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-
+// import BlankListForm from "../BlankListForm/BlankListForm";
 
 export default function BlankList({ newLists }) {
   let { newListSteps } = useParams();
@@ -23,7 +23,7 @@ export default function BlankList({ newLists }) {
     setNewItem({
       title: "",
       description: "",
-      terminalCommand: null,
+      terminalCommand: "",
       completed: null,
       otherStepSpecificData: null,
       id: Math.floor(Math.random() * 100)
@@ -52,12 +52,6 @@ export default function BlankList({ newLists }) {
     // console.log(removeItem)
   }
 
-  function setBoolean(idx) {
-    const updatedList = [...customList];
-    updatedList[idx].completed ? updatedList[idx].completed = false : updatedList[idx].completed = true;
-    setNewItem(updatedList);
-  }
-
   return (
     <>
       <h2>{newListSteps} CheckList</h2>
@@ -77,6 +71,7 @@ export default function BlankList({ newLists }) {
 
         </div>
       ))}
+
       <div>
         <form onSubmit={handleSubmit}>
           <input
@@ -112,3 +107,10 @@ export default function BlankList({ newLists }) {
     </>
   );
 }
+
+/*------ Garbage Bin -------*/
+//   function setBoolean(idx) {
+//     const updatedList = [...customList];
+//     updatedList[idx].completed ? updatedList[idx].completed = false : updatedList[idx].completed = true;
+//     setNewItem(updatedList);
+//   }
