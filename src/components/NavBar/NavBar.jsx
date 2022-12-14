@@ -8,13 +8,36 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav>
-      <Link to="/orders">Order History</Link>
-      &nbsp; | &nbsp;
-      <Link to="/orders/new">New Order</Link>
-      &nbsp;&nbsp;
-      <span>Welcome, {user.name}</span>
-      &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
-    </nav>
+    <header>
+      <nav>
+        <div>
+          <span>Welcome, {user.name}</span>
+          <button>
+            <Link to="/">HOME</Link>
+          </button>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <button>
+            <Link to="/Express">express</Link>
+          </button>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <button>
+            <Link to="/Django">django</Link>
+          </button>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <button>
+            <Link to="/React">react</Link>
+          </button>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <button>
+            <Link to="/blanklist/groceries">Blank</Link>
+          </button>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <button>
+            <Link to="" onClick={handleLogOut}>Log Out</Link>
+          </button>
+          &nbsp;&nbsp;
+        </div>
+      </nav>
+    </header>
   );
 }

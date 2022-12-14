@@ -5,13 +5,9 @@ const User = require('../../models/user');
 module.exports = {
   create,
   login,
-  checkToken
+
 };
 
-function checkToken(req, res) {
-  console.log('req.user', req.user);
-  res.json(req.exp);
-}
 
 async function create(req, res) {
   try {
@@ -47,3 +43,12 @@ function createJWT(user) {
     { expiresIn: '24h' }
   );
 }
+
+
+/*------ Garbage Bin -------*/
+  // checkToken
+
+// function checkToken(req, res) {
+//   console.log('req.user', req.user);
+//   res.json(req.exp);
+// }
