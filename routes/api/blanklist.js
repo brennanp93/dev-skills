@@ -5,7 +5,7 @@ const blankListCtrl = require('../../controllers/api/blanklist')
 
 router.post('/', blankListCtrl.create);
 
-// router.post('/', stepsCtrl.create);
+router.get('/', blankListCtrl.index);
 
 
 module.exports = router;

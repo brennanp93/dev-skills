@@ -29,7 +29,7 @@ export default function HomePage() {
         <div>
           <button>
             <h2>
-              <Link to="/groceries">Blank</Link>
+              <Link to="/newchecklist">New Form</Link>
             </h2>
           </button>
         </div>
