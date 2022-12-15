@@ -1,57 +1,39 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+
 
 export default function BlankListForm({ addCheckListItem }) {
-  // const [customList, setCustomList] = useState(listSteps);
-  // const [newCheckListItem, setNewCheckListItem] = useState([]);
+
   const [incomingItem, setIncomingItem] = useState({
-    title: "",
-    description: "",
+    stepTitle: '',
+    description: '',
     terminalCommand: null,
-    completed: null,
-    otherStepSpecificData: null,
-    steps: [{stepTitle: '', newStepTitle: ''}]
-    // id: Math.floor(Math.random() * 100)
+    completed: null
   });
 
 
-// {
-//   name: "Express",
-//   description: "Some description you may or may not want to have above the steps",
-//   website: "idk",
-//   steps: [
-//     {
-//       title: "",
-//       description: "",
-//       terminalCommand: null,
-//       completed: false,
 
-//     }
-// }
 
+  // TESTING BELOW
   async function handleSubmit(evt) {
-            evt.preventDefault();
-            addCheckListItem(incomingItem)
-            // setCustomList([...customList, incomingItem]);
-            setIncomingItem({
-              title: "",
-              description: "",
-              terminalCommand: "",
-              completed: null,
-              otherStepSpecificData: null,
-              steps: [{stepTitle: '', newStepTitle: ''}]
-              // id: Math.floor(Math.random() * 100)
-            })
-          }
-
+    evt.preventDefault();
+    addCheckListItem(incomingItem)
+    // setCustomList([...customList, incomingItem]);
+    setIncomingItem({
+      stepTitle: '',
+      description: '',
+      terminalCommand: '',
+      completed: false
+    })
+  }
+console.log(incomingItem.terminalCommand)
   // Handles the form fields being filled out
   function handleChange(evt) {
-            const formFields = {
-              ...incomingItem.steps,
-              [evt.target.name]: evt.target.value,
-            };
-            setIncomingItem(formFields);
-          }
+    const formFields = {
+      ...incomingItem,
+      [evt.target.name]: evt.target.value,
+    };
+    setIncomingItem(formFields);
+  }
 
 
   return (
@@ -60,7 +42,7 @@ export default function BlankListForm({ addCheckListItem }) {
         <input
           autoComplete="off"
           name="stepTitle"
-          value={incomingItem.steps.stepTitle}
+          value={incomingItem.stepTitle}
           onChange={handleChange}
           placeholder="New To-Do"
           required
@@ -89,3 +71,33 @@ export default function BlankListForm({ addCheckListItem }) {
     </div>
   );
 }
+
+
+
+  // const [customList, setCustomList] = useState(listSteps);
+  // const [newCheckListItem, setNewCheckListItem] = useState([]);
+  // const [incomingItem, setIncomingItem] = useState({
+  //   title: "",
+  //   description: "",
+  //   terminalCommand: null,
+  //   completed: null,
+  //   otherStepSpecificData: null,
+  //   steps: [{stepTitle: '', newStepTitle: ''}]
+  //   // id: Math.floor(Math.random() * 100)
+  // });
+
+
+    // async function handleSubmit(evt) {
+  //           evt.preventDefault();
+  //           addCheckListItem(incomingItem)
+  //           // setCustomList([...customList, incomingItem]);
+  //           setIncomingItem({
+  //             title: "",
+  //             description: "",
+  //             terminalCommand: "",
+  //             completed: null,
+  //             otherStepSpecificData: null,
+  //             steps: [{stepTitle: '', newStepTitle: ''}]
+  //             // id: Math.floor(Math.random() * 100)
+  //           })
+  //         }

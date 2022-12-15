@@ -188,3 +188,14 @@ export const newLists = [{
     ]
 }
 ]
+
+
+
+// {name: "New Check List",
+//     description: "This is the new checkList",
+//     website: '',
+//     user: '',
+//     steps: [{stepTitle: "Learn Express",
+//         description: "Learn Express to land a job",
+//         terminalCommand: "npm i learn express",
+//         completed: false}],}
