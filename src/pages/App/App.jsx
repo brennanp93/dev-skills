@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
@@ -17,6 +17,7 @@ import UpdateCheckListForm from '../../components/UpdateCheckListForm/UpdateChec
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [checkList, setCheckList] = useState([]);
+  const navigate = useNavigate();
 
   async function addCheckListItem(checkListData) {
     const newCheckListItem = await checkListAPI.create(checkListData);
@@ -32,10 +33,11 @@ export default function App() {
 
 
   async function updateListItem(updateCheckListFormData, id) {
-    const updatedItem = await checkListAPI.updateListItem(updateCheckListFormData, id);
+    // const updatedItem = await checkListAPI.updateListItem(updateCheckListFormData, id);
     await checkListAPI.updateListItem(updateCheckListFormData, id);
     const checkList = await checkListAPI.getAll();
     setCheckList(checkList)
+    navigate('/newchecklist')
   }
 
   useEffect(function () {
