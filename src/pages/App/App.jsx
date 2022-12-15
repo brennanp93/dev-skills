@@ -11,22 +11,12 @@ import NavBar from '../../components/NavBar/NavBar';
 import { checkLists, newLists } from "../../data";
 import * as checkListAPI from '../../utilities/blanklist-api'
 // import BlankListForm from '../../components/BlankListForm/BlankListForm';
-import NewCheckList from '../../components/NewCheckList/NewCheckList';
+import NewCheckListPage from '../../components/NewCheckListPage/NewCheckListPage';
+import UpdateCheckListForm from '../../components/UpdateCheckListForm/UpdateCheckListForm';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [checkList, setCheckList] = useState([]);
-
-
-  useEffect(function() {
-    async function getAll() {
-      const entireCheckList = await checkListAPI.getAll();
-      setCheckList(entireCheckList)
-    };
-    getAll();
-  }, [])
-
-
 
   async function addCheckListItem(checkListData) {
     const newCheckListItem = await checkListAPI.create(checkListData);
@@ -34,18 +24,47 @@ export default function App() {
     // console.log(newCheckListItem)
   }
 
+  async function deleteListItem(id) {
+    await checkListAPI.deleteListItem(id);
+    const afterDeleteList = checkList.filter(note => note._id !== id);
+    setCheckList(afterDeleteList);
+  }
+
+
+  async function updateListItem(updateCheckListFormData, id) {
+    const updatedItem = await checkListAPI.updateListItem(updateCheckListFormData, id);
+    await checkListAPI.updateListItem(updateCheckListFormData, id);
+    const checkList = await checkListAPI.getAll();
+    setCheckList(checkList)
+  }
+
+  useEffect(function () {
+    async function getAllItems() {
+      const entireCheckList = await checkListAPI.getAll();
+      setCheckList(entireCheckList)
+    };
+    getAllItems();
+  }, [])
+
   return (
     <main className="App">
       {user ?
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/newchecklist" element={<NewCheckList checkList={checkList} addCheckListItem={addCheckListItem} />} />
+            <Route path="/newchecklist" element={<NewCheckListPage
+              checkList={checkList}
+              addCheckListItem={addCheckListItem}
+              deleteListItem={deleteListItem}
+              updateListItem={updateListItem} />} />
+            {/* <Route path="/checklist/:id/update" element={UpdateCheckListForm} /> */}
+
             {/* <Route path="/newchecklist" element={<BlankListForm addCheckListItem={addCheckListItem} />} /> */}
             <Route path="/" element={<HomePage />} />
             <Route path="/:checkList" element={<DevSkillsList checkListSteps={checkLists} />} />
-            
-            <Route path="/blanklist/:newListSteps" element={<BlankList newLists={newLists} />} />
+            <Route path="/blanklist/:id/update" element={<UpdateCheckListForm checkList={checkList} updateListItem={updateListItem} />} />
+
+            {/* <Route path="/blanklist/:newListSteps" element={<BlankList newLists={newLists} />} /> */}
           </Routes>
         </>
         :

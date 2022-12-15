@@ -9,3 +9,13 @@ export async function getAll() {
 export async function create(checkListData) {
   return sendRequest(BASE_URL, 'POST', checkListData);
 }
+export async function deleteListItem(id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+}
+
+export async function updateListItem( UpdateCheckListFormData, id) {
+  return sendRequest(`${BASE_URL}/${id}/update`, 'PUT', UpdateCheckListFormData);
+}
+
+
+// /api/blanklist/${id}/update
