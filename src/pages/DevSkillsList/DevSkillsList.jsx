@@ -1,50 +1,43 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as devSkillsAPI from '../../utilities/devskills-api'
+import Step from "../../components/Step/Step";
 
 export default function CheckList() {
   let { checkList } = useParams();
   const [devSkills, setDevSkills] = useState([])
-  let oneStep = devSkills.find((list) => list.name === checkList)
-  // let checkListSteps = oneStep.steps;
-  // console.log(checkList)
-  // console.log(checkListSteps, "array of steps")
-  console.log(oneStep, "step object")
-  // const [markComplete, setMarkComplete] = useState([
-  //   {
-  //     "title": "",
-  //     "description": "",
-  //     "terminalCommand": "",
-  //     "completed": "",
-  //     "otherStepSpecificData": ""
-  //   },
-  // ])
+  const [currentDevSkill, setCurrentDevSkill] = useState(null);
+  const [steps, setSteps] = useState([]);
 
   useEffect(function () {
     async function getAllItems() {
-      const entireCheckList = await devSkillsAPI.getAll();
-      setDevSkills(entireCheckList)
+      const entireDevSkillsCheckList = await devSkillsAPI.getAll();
+      setDevSkills(entireDevSkillsCheckList)
+      let singleDevSkill = entireDevSkillsCheckList.find((list) => list.name === checkList)
+      setCurrentDevSkill(singleDevSkill);
+      setSteps(singleDevSkill.steps)
     };
     getAllItems();
   }, [])
-
-  // function setBoolean(idx) {
-  //   const updatedList = [...oneStep.steps];
-  //   updatedList[idx].completed ? updatedList[idx].completed = false : updatedList[idx].completed = true;
-  //   setMarkComplete(updatedList);
-  // }
-
-
+  let showSteps;
+  if (currentDevSkill) {
+    showSteps = steps.map((step, idx) => (
+      <Step step={step} key={step.title} />
+    ))
+  }
 
   return (
     <>
-      <h1>Welcome to the {checkList} CheckList</h1>
-      {/* {oneStep.steps.map((step, idx) => (
-        <h1>{step.title}</h1>
-      ))} */}
-
+      {currentDevSkill ?
+        <>
+          <h1>Welcome to the {currentDevSkill.name} CheckList</h1>
+          {showSteps}
+        </>
+        :
+        ""
+      }
     </>
-  );
+  )
 }
 
 

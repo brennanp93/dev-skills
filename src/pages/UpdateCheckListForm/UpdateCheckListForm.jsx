@@ -1,7 +1,9 @@
-import { useParams } from 'react-router-dom'
-import { useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import './UpdateCheckListForm.css';
 
 export default function UpdateCheckListForm({ checkList, updateListItem }) {
+  const navigate = useNavigate();
   const { id } = useParams();
   let updatedlistItem = checkList.find(listItem => listItem._id === id);
   const [updatedCheckList, setUpdatedCheckList] = useState(updatedlistItem);
@@ -18,7 +20,8 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
   }
 
   return (
-    <div>
+    <div >
+      <div className='checklist-form'>
       <form onSubmit={handleSubmit}>
         <div>
           <input
@@ -26,7 +29,7 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
             name="stepTitle"
             value={updatedCheckList.stepTitle}
             onChange={handleChange}
-            placeholder="New To-Do"
+            placeholder=""
             required
             pattern=".{2,}"
           />
@@ -53,8 +56,10 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
             pattern=".{2,}"
           />
         </div>
-        <button type="submit">Add To Do</button>
+        <button type="submit">Update</button>
+        <button onClick={() => navigate('/blanklist')}>Never Mind</button>
       </form>
+      </div>
     </div>
   );
 }

@@ -14,10 +14,10 @@ export default function NewCheckListPage({ checkList, addCheckListItem, deleteLi
 
   return (
     <>
-      <div>
+      <div className='add-item-form'>
         <BlankListForm addCheckListItem={addCheckListItem} />
       </div>
-      <div >
+      <div className='checklist-box'>
         {checkList.map((step, idx) => (
           <div className="step-card" key={step._id}>
             <p>{step.stepTitle}</p>
