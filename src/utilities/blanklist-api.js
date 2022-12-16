@@ -13,9 +13,15 @@ export async function deleteListItem(id) {
   return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }
 
-export async function updateListItem( UpdateCheckListFormData, id) {
-  return sendRequest(`${BASE_URL}/${id}/update`, 'PUT', UpdateCheckListFormData);
+export async function updateBoolean(UpdateCheckListFormData, id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'PUT', UpdateCheckListFormData);
+  // return sendRequest(`${BASE_URL}/${id}/update`, 'PUT', UpdateCheckListFormData);
 }
+
+export async function updateListItem(booleanData, id) {
+  return sendRequest(`${BASE_URL}/${id}/update`, 'PUT', booleanData);
+}
+
 
 
 // /api/blanklist/${id}/update

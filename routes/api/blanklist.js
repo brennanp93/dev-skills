@@ -8,10 +8,11 @@ const blankListCtrl = require('../../controllers/api/blanklist')
 // GET /api/blanklist
 router.get('/', blankListCtrl.index);
 
+// Update Boolean Only
+router.put('/:id', blankListCtrl.updateBool);
+
 router.put('/:id/update', blankListCtrl.update);
 
-
-// /api/blanklist/${id}/update
 //DELETE /api.notes/:id
 router.delete('/:id', blankListCtrl.delete);
 // POST /api/blanklist

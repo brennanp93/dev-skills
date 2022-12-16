@@ -29,7 +29,7 @@ export default function NavBar({ user, setUser }) {
           </button>
           &nbsp;&nbsp;|&nbsp;&nbsp;
           <button>
-            <Link to="/newchecklist">New Check List</Link>
+            <Link to="/blanklist">New Check List</Link>
           </button>
           &nbsp;&nbsp;|&nbsp;&nbsp;
           <button>

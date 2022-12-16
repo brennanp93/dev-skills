@@ -6,7 +6,7 @@ export default function BlankListForm({ addCheckListItem }) {
     stepTitle: '',
     description: '',
     terminalCommand: '',
-    completed: null
+    completed: false
   });
 
   // Submits towards server

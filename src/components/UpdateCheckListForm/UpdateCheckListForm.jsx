@@ -17,6 +17,7 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
   function handleSubmit(evt) {
     evt.preventDefault();
     updateListItem(updatedCheckList, id);
+
   }
 
   return (

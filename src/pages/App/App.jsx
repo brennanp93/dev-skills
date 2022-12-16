@@ -31,7 +31,7 @@ export default function App() {
     setCheckList(afterDeleteList);
   }
 
-
+  
   async function updateListItem(updateCheckListFormData, id) {
     // const updatedItem = await checkListAPI.updateListItem(updateCheckListFormData, id);
     await checkListAPI.updateListItem(updateCheckListFormData, id);
@@ -39,6 +39,14 @@ export default function App() {
     setCheckList(checkList)
     navigate('/newchecklist')
   }
+
+  async function updateBoolean(booleanData, id) {
+    // const updatedItem = await checkListAPI.updateListItem(updateCheckListFormData, id);
+    await checkListAPI.updateBoolean(booleanData, id);
+    const checkListBoolean = await checkListAPI.getAll();
+    setCheckList(checkListBoolean)
+  }
+
 
   useEffect(function () {
     async function getAllItems() {
@@ -54,11 +62,13 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/newchecklist" element={<NewCheckListPage
+            <Route path="/blanklist" element={<NewCheckListPage
               checkList={checkList}
               addCheckListItem={addCheckListItem}
               deleteListItem={deleteListItem}
-              updateListItem={updateListItem} />} />
+              updateListItem={updateListItem}
+              updateBoolean={updateBoolean} 
+              />} />
             {/* <Route path="/checklist/:id/update" element={UpdateCheckListForm} /> */}
 
             {/* <Route path="/newchecklist" element={<BlankListForm addCheckListItem={addCheckListItem} />} /> */}
