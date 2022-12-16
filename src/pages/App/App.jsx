@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+import { Routes, Route, useNavigate} from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
@@ -8,7 +8,7 @@ import HomePage from '../HomePage/HomePage';
 import DevSkillsList from '../../components/DevSkillsList/DevSkillsList'
 import NavBar from '../../components/NavBar/NavBar';
 /* Below is just for testing. Make sure to delete once data is seeded to DB */
-import { checkLists, newLists } from "../../data";
+import { checkLists } from "../../data";
 import * as checkListAPI from '../../utilities/blanklist-api'
 // import BlankListForm from '../../components/BlankListForm/BlankListForm';
 
@@ -62,6 +62,7 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
+            {/* <Route path="/testdevskills" element={<TestDevSkillsList  />} /> */}
             <Route path="/blanklist" element={<NewCheckListPage
               checkList={checkList}
               addCheckListItem={addCheckListItem}

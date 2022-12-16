@@ -22,7 +22,7 @@ export default function HomePage() {
         <div>
           <button>
             <h2>
-              <Link to="/react">React</Link>
+              <Link to="/React">React</Link>
             </h2>
           </button>
         </div>
