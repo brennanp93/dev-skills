@@ -1,19 +1,16 @@
 import { useParams } from 'react-router-dom'
-import { useState} from 'react'
+import { useState } from 'react'
 
 export default function UpdateCheckListForm({ checkList, updateListItem }) {
   const { id } = useParams();
   let updatedlistItem = checkList.find(listItem => listItem._id === id);
   const [updatedCheckList, setUpdatedCheckList] = useState(updatedlistItem);
-  // console.log(updatedlistItem, "UpdateCL FORM")
-  // console.log(updatedCheckList, "UpdateCL FORM")
-
 
   function handleChange(evt) {
-    const editFormData = {...updatedlistItem, [evt.target.name]: evt.target.value}
+    const editFormData = { ...updatedlistItem, [evt.target.name]: evt.target.value }
     setUpdatedCheckList(editFormData);
   }
-
+// console.log(updatedCheckList)
   function handleSubmit(evt) {
     evt.preventDefault();
     updateListItem(updatedCheckList, id);

@@ -4,15 +4,16 @@ import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
-import BlankList from '../../components/BlankList/BlankList';
+// import BlankList from '../../components/BlankList/BlankList';
 import DevSkillsList from '../../components/DevSkillsList/DevSkillsList'
 import NavBar from '../../components/NavBar/NavBar';
 /* Below is just for testing. Make sure to delete once data is seeded to DB */
 import { checkLists, newLists } from "../../data";
 import * as checkListAPI from '../../utilities/blanklist-api'
 // import BlankListForm from '../../components/BlankListForm/BlankListForm';
-import NewCheckListPage from '../../components/NewCheckListPage/NewCheckListPage';
+
 import UpdateCheckListForm from '../../components/UpdateCheckListForm/UpdateCheckListForm';
+import NewCheckListPage from '../../components/NewCheckListPage/NewCheckListPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -47,7 +48,6 @@ export default function App() {
     setCheckList(checkListBoolean)
   }
 
-
   useEffect(function () {
     async function getAllItems() {
       const entireCheckList = await checkListAPI.getAll();
@@ -68,7 +68,8 @@ export default function App() {
               deleteListItem={deleteListItem}
               updateListItem={updateListItem}
               updateBoolean={updateBoolean} 
-              />} />
+              />} 
+              />
             {/* <Route path="/checklist/:id/update" element={UpdateCheckListForm} /> */}
 
             {/* <Route path="/newchecklist" element={<BlankListForm addCheckListItem={addCheckListItem} />} /> */}

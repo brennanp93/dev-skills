@@ -16,7 +16,7 @@ export default function NavBar({ user, setUser }) {
             <Link to="/">HOME</Link>
           </button>
           &nbsp;&nbsp;|&nbsp;&nbsp;
-          <button>
+          {/* <button>
             <Link to="/Express">express</Link>
           </button>
           &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -31,7 +31,7 @@ export default function NavBar({ user, setUser }) {
           <button>
             <Link to="/blanklist">New Check List</Link>
           </button>
-          &nbsp;&nbsp;|&nbsp;&nbsp;
+          &nbsp;&nbsp;|&nbsp;&nbsp; */}
           <button>
             <Link to="" onClick={handleLogOut}>Log Out</Link>
           </button>

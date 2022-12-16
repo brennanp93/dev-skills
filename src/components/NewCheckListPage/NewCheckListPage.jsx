@@ -29,7 +29,9 @@ export default function NewCheckListPage({ checkList, addCheckListItem, deleteLi
             </button>
           </div>
         ))}
+
       </div>
+
     </>
   )
 }
