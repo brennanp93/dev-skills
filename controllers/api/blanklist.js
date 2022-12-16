@@ -18,11 +18,8 @@ async function index(req, res) {
 
 async function update(req, res) {
     try {
-        await BlankList.findByIdAndUpdate(
-            { _id: req.params.id }, req.body
-        )
+        await BlankList.findByIdAndUpdate({ _id: req.params.id }, req.body)
         const listItem = await BlankList.find({ user: req.user._id })
-
         res.json(listItem)
     } catch (err) {
         return next(err)
@@ -30,43 +27,12 @@ async function update(req, res) {
 }
 
 async function updateBool(req, res) {
-    // console.log(req.body._id, "body")
-    // console.log(req.params.id, "params")
-    // console.log(id, "ID")
-    // console.log(req.body, "params")
-    // console.log(req.body.completed, "completed")
     let id = req.body._id;
     const filter = { _id: id  }
     const update = { completed: req.body.completed }
     const updatedItem = await BlankList.findOneAndUpdate({_id: id}, update)
     res.json(updatedItem)
-    console.log(updatedItem, "listITEM")
 }
-
-// async function updateBool(req, res) {
-//     await BlankList.findByIdAndUpdate(
-//         { _id: req.params.id }, req.body.completed
-//     )
-//     const listItem = await BlankList.find({ user: req.user._id })
-//     res.json(listItem)
-//     // console.log(listItem)
-// }
-
-// async function updateNote(req, res) {
-//     try {
-//       await Note.findByIdAndUpdate(
-//         {_id: req.params.id}, req.body
-//         )
-//       const note = await Note.find({user: req.user._id})
-//       res.json(note);
-//     } catch (err) { 
-//       return next(err);
-//     }
-//   }
-
-
-
-
 
 async function create(req, res) {
     req.body.user = req.user._id;

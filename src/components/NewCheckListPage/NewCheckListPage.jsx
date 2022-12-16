@@ -19,7 +19,7 @@ export default function NewCheckListPage({ checkList, addCheckListItem, deleteLi
       </div>
       <div >
         {checkList.map((step, idx) => (
-          <div className="step-card" key={idx}>
+          <div className="step-card" key={step._id}>
             <p>{step.stepTitle}</p>
             <p>{step.terminalCommand ? `Enter into Terminal:  ${step.terminalCommand}` : ''}</p>
             <button onClick={() => deleteListItem(step._id)}>Delete</button>
@@ -29,9 +29,7 @@ export default function NewCheckListPage({ checkList, addCheckListItem, deleteLi
             </button>
           </div>
         ))}
-
       </div>
-
     </>
   )
 }
