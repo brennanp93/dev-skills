@@ -37,7 +37,7 @@ export default function App() {
     await checkListAPI.updateListItem(updateCheckListFormData, id);
     const checkList = await checkListAPI.getAll();
     setCheckList(checkList)
-    navigate('/newchecklist')
+    navigate('/blanklist')
   }
 
   async function updateBoolean(booleanData, id) {

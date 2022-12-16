@@ -1,31 +1,26 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import './NewCheckListPage.css'
 import BlankListForm from "../BlankListForm/BlankListForm"
 
 
-export default function NewCheckListPage({ checkList, addCheckListItem, deleteListItem, updateListItem, updateBoolean }) {
 
-    const [updatingBoolean, setUpdatingBoolean] = useState([]);
+export default function NewCheckListPage({ checkList, addCheckListItem, deleteListItem, updateListItem, updateBoolean }) {
+// console.log(checkList, "checklist")
+    // const [updatingBoolean, setUpdatingBoolean] = useState([]);
     // console.log(updatingBoolean)
     // console.log(checkList)
     // let updatedlistItem = checkList.find(listItem => listItem._id === id);
     const navigate = useNavigate();
 
-    // function handleChange(evt) {
-    //     const editFormData = {...updatedlistItem, [evt.target.name]: evt.target.value}
-    //     setUpdatedCheckList(editFormData);
-    //   }
+
 
     function handleUpdateBoolean(idx, id) {
-        // const checklistArr = [...checkList]
-        // console.log(idx, id)
-        // console.log(checklistArr)
-        checkList[idx].completed ? checkList[idx].completed = false : checkList[idx].completed = true
-        setUpdatingBoolean(checkList);
-        updateBoolean(updatingBoolean[idx], id)
-        // console.log(updatingBoolean[idx], id)
+        checkList[idx].completed ? checkList[idx].completed = false : checkList[idx].completed = true;
+        updateBoolean(checkList[idx], id)
+        console.log(checkList[idx], "here")
     }
+
+
 
     return (
         <>
