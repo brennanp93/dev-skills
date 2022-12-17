@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './NewCheckListPage.css'
-import BlankListForm from "../../components/BlankListForm/BlankListForm"
+import AddItemForm from "../../components/AddItemForm/AddItemForm"
 
 export default function NewCheckListPage({ checkList, addCheckListItem, deleteListItem, updateListItem, updateBoolean }) {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function NewCheckListPage({ checkList, addCheckListItem, deleteLi
   return (
     <>
       <div className='add-item-form'>
-        <BlankListForm addCheckListItem={addCheckListItem} />
+        <AddItemForm addCheckListItem={addCheckListItem} />
       </div>
       <div className='checklist-box'>
         {checkList.map((step, idx) => (

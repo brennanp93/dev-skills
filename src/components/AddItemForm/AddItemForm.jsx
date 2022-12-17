@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 
-export default function BlankListForm({ addCheckListItem }) {
-  const [incomingItem, setIncomingItem] = useState({
+export default function AddItemForm({ addCheckListItem }) {
+  const [addedItem, setAddedItem] = useState({
     stepTitle: '',
     description: '',
     terminalCommand: '',
@@ -12,8 +12,8 @@ export default function BlankListForm({ addCheckListItem }) {
   // Submits towards server
   function handleSubmit(evt) {
     evt.preventDefault();
-    addCheckListItem(incomingItem)
-    setIncomingItem({
+    addCheckListItem(addedItem)
+    setAddedItem({
       stepTitle: '',
       description: '',
       terminalCommand: '',
@@ -24,10 +24,10 @@ export default function BlankListForm({ addCheckListItem }) {
   // Handles the form fields being filled out
   function handleChange(evt) {
     const formFields = {
-      ...incomingItem,
+      ...addedItem,
       [evt.target.name]: evt.target.value,
     };
-    setIncomingItem(formFields);
+    setAddedItem(formFields);
   }
 
   return (
@@ -37,7 +37,7 @@ export default function BlankListForm({ addCheckListItem }) {
           <input
             autoComplete="off"
             name="stepTitle"
-            value={incomingItem.stepTitle}
+            value={addedItem.stepTitle}
             onChange={handleChange}
             placeholder="New To-Do"
             required
@@ -48,7 +48,7 @@ export default function BlankListForm({ addCheckListItem }) {
           <input
             autoComplete="off"
             name="description"
-            value={incomingItem.description}
+            value={addedItem.description}
             onChange={handleChange}
             placeholder="Description"
             // required
@@ -59,7 +59,7 @@ export default function BlankListForm({ addCheckListItem }) {
           <input
             autoComplete="off"
             name="terminalCommand"
-            value={incomingItem.terminalCommand}
+            value={addedItem.terminalCommand}
             onChange={handleChange}
             placeholder="Terminal Command"
             // required

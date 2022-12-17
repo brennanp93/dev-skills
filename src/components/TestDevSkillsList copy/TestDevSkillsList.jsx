@@ -1,15 +1,15 @@
-import { useParams } from "react-router-dom";
-import { useState } from "react";
-import * as devSkillsAPI from '../../utilities/devskills-api'
-export default function TestDevSkillsList() {
-  // let { checkList } = useParams();
-  // let oneStep = checkListSteps.find((list) => list.name === checkList)
-  const [devSkills, setDevSkills] = useState([])
+// import { useParams } from "react-router-dom";
+// import { useState } from "react";
+// import * as devSkillsAPI from '../../utilities/devskills-api'
+// export default function TestDevSkillsList() {
+//   // let { checkList } = useParams();
+//   // let oneStep = checkListSteps.find((list) => list.name === checkList)
+//   const [devSkills, setDevSkills] = useState([])
 
-  return ( 
-    <div>Hello</div>
-   );
-}
+//   return ( 
+//     <div>Hello</div>
+//    );
+// }
   // useEffect(function () {
   //   async function getAllItems() {
   //     const entireCheckList = await devSkillsAPI.getAll();

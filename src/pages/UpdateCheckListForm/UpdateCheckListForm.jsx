@@ -12,7 +12,7 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
     const editFormData = { ...updatedlistItem, [evt.target.name]: evt.target.value }
     setUpdatedCheckList(editFormData);
   }
-// console.log(updatedCheckList)
+
   function handleSubmit(evt) {
     evt.preventDefault();
     updateListItem(updatedCheckList, id);
