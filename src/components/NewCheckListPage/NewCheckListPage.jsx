@@ -10,6 +10,7 @@ export default function NewCheckListPage({ checkList, addCheckListItem, deleteLi
   function handleUpdateBoolean(idx, id) {
     checkList[idx].completed ? checkList[idx].completed = false : checkList[idx].completed = true;
     updateBoolean(checkList[idx], id)
+    console.log(checkList[idx], id)
   }
 
   return (

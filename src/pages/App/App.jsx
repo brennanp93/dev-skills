@@ -44,6 +44,7 @@ export default function App() {
 
   // Sets the boolean value in the DB so that it renders buttom dynamically. 
   async function updateBoolean(booleanData, id) {
+    console.log(booleanData)
     await checkListAPI.updateBoolean(booleanData, id);
     const checkListBoolean = await checkListAPI.getAll();
     setCheckList(checkListBoolean)

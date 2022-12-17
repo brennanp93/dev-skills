@@ -12,13 +12,14 @@ export default function CheckList() {
   useEffect(function () {
     async function getAllItems() {
       const entireDevSkillsCheckList = await devSkillsAPI.getAll();
-      setDevSkills(entireDevSkillsCheckList)
+      // setDevSkills(entireDevSkillsCheckList)
       let singleDevSkill = entireDevSkillsCheckList.find((list) => list.name === checkList)
       setCurrentDevSkill(singleDevSkill);
       setSteps(singleDevSkill.steps)
     };
     getAllItems();
   }, [])
+
   let showSteps;
   if (currentDevSkill) {
     showSteps = steps.map((step, idx) => (
