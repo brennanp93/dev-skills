@@ -1,5 +1,5 @@
 import * as devSkillsAPI from '../../utilities/devskills-api'
-export default function Step({ step }) {
+export default function Step({ step, updateBoolean }) {
     // console.log(step)
 
     // async function updateBoolean(booleanData, id) {
@@ -11,13 +11,13 @@ export default function Step({ step }) {
     //     // console.log(checkListBoolean, "CLB")
     // }
 
-    // function handleUpdateBoolean(id) {
-    //     step.completed ? step.completed = false : step.completed = true;
-    //     updateBoolean(step, id)
+    function handleUpdateBoolean(id) {
+        step.completed ? step.completed = false : step.completed = true;
+        updateBoolean(step, id)
     //     // console.log(step.completed)
     //     // console.log(step, id)
     //     // console.log(id)
-    // }
+    }
 
 
     return (
@@ -33,7 +33,7 @@ export default function Step({ step }) {
                     ""
                 }
                 <p>{step.otherStepSpecificData}</p>
-                <button  >
+                <button onClick={() => handleUpdateBoolean(step._id)} >
                     {step.completed ? 'Undo 🔙' : 'Click to Mark as Complete ✅'}
                 </button>
             </div>

@@ -3,7 +3,7 @@ const BASE_URL = '/api/devskills';
 
 
 export async function getAll() {
-    return sendRequest(BASE_URL)
+    return sendRequest(BASE_URL);
 }
 
 export async function updateBoolean(UpdateCheckListFormData, id) {

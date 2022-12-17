@@ -27,6 +27,8 @@ const port = process.env.PORT || 3001;
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/blanklist', require('./routes/api/blanklist'));
 app.use('/api/devskills', require('./routes/api/devskills'));
+app.use('/api/djangolist', require('./routes/api/djangolist'));
+app.use('/api/expresslist', require('./routes/api/expresslist'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests

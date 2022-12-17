@@ -3,45 +3,48 @@ import { useState, useEffect } from "react";
 import * as devSkillsAPI from '../../utilities/devskills-api'
 import Step from "../../components/Step/Step";
 
-export default function CheckList() {
-  let { checkList } = useParams();
+export default function CheckList({ devSkillsList, updateBoolean, djangoList, expressList }) {
+  let { checklist } = useParams();
   const [devSkills, setDevSkills] = useState([])
   const [currentDevSkill, setCurrentDevSkill] = useState(null);
   const [steps, setSteps] = useState([]);
 
-  useEffect(function () {
-    async function getAllItems() {
-      const entireDevSkillsCheckList = await devSkillsAPI.getAll();
-      // setDevSkills(entireDevSkillsCheckList)
-      let singleDevSkill = entireDevSkillsCheckList.find((list) => list.name === checkList)
-      setCurrentDevSkill(singleDevSkill);
-      setSteps(singleDevSkill.steps)
-    };
-    getAllItems();
-  }, [])
 
-  let showSteps;
-  if (currentDevSkill) {
-    showSteps = steps.map((step, idx) => (
-      <Step step={step} key={step.title} />
-    ))
+  let oneStep = checklist === 'Django' ? djangoList : expressList
+
+  function handleUpdateBoolean(idx, id) {
+    oneStep[idx].completed ? oneStep[idx].completed = false : oneStep[idx].completed = true;
+    updateBoolean(oneStep[idx], id)
+    // console.log(checkList[idx], id)
   }
 
   return (
     <>
-      {currentDevSkill ?
-        <>
-          <h1>Welcome to the {currentDevSkill.name} CheckList</h1>
-          {showSteps}
-        </>
-        :
-        ""
-      }
+      <div></div>
+      <div>
+        {oneStep.map((step, idx) => (
+          <div className="step-card" key={step._id}>
+          <p>{step.stepTitle}</p>
+          <p>{step.terminalCommand ? `Enter into Terminal:  ${step.terminalCommand}` : ''}</p>
+          <button onClick={() => handleUpdateBoolean(idx, step._id)} >
+            {step.completed ? 'Undo 🔙' : 'Click to Mark as Complete ✅'}
+          </button> 
+        </div>
+        ))}
+      </div>
+
     </>
   )
+
 }
 
 
+
+{/* <div>
+                {singleDevSkill.steps.map((step) => (
+                  <div>{step.title}</div>
+                ))}
+              </div> */}
 
 
 // export default function CheckList({ checkListSteps }) {

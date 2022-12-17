@@ -1,7 +1,4 @@
-// const { getNextKeyDef } = require('@testing-library/user-event/dist/keyboard/getNextKeyDef');
 const BlankList = require('../../models/blanklist');
-
-// const { deleteListItem } = require('../../src/utilities/blanklist-api');
 
 module.exports = {
     create,
@@ -13,6 +10,7 @@ module.exports = {
 
 async function index(req, res) {
     const entireCheckList = await BlankList.find({ user: req.user._id });
+    // console.log(entireCheckList)
     res.json(entireCheckList)
 }
 
