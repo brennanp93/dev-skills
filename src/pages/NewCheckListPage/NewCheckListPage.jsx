@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './NewCheckListPage.css'
-import BlankListForm from "../BlankListForm/BlankListForm"
+import BlankListForm from "../../components/BlankListForm/BlankListForm"
 
 export default function NewCheckListPage({ checkList, addCheckListItem, deleteListItem, updateListItem, updateBoolean }) {
   const navigate = useNavigate();

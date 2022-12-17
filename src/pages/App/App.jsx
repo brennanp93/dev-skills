@@ -12,7 +12,7 @@ import * as checkListAPI from '../../utilities/blanklist-api'
 import * as djangoListAPI from '../../utilities/djangolist-api'
 import * as expressListAPI from '../../utilities/expresslist-api'
 import UpdateCheckListForm from '../UpdateCheckListForm/UpdateCheckListForm';
-import NewCheckListPage from '../../components/NewCheckListPage/NewCheckListPage';
+import NewCheckListPage from '../NewCheckListPage/NewCheckListPage';
 // import BlankList from '../../components/BlankList/BlankList';
 import * as devSkillsAPI from '../../utilities/devskills-api'
 // import BlankListForm from '../../components/BlankListForm/BlankListForm';
