@@ -36,10 +36,10 @@ export default function App() {
     const afterDeleteList = checkList.filter(note => note._id !== id);
     setCheckList(afterDeleteList);
   }
+  // const updatedItem = await checkListAPI.updateListItem(updateCheckListFormData, id);
 
   //Updates the specific item
   async function updateListItem(updateCheckListFormData, id) {
-    // const updatedItem = await checkListAPI.updateListItem(updateCheckListFormData, id);
     await checkListAPI.updateListItem(updateCheckListFormData, id);
     const checkList = await checkListAPI.getAll();
     setCheckList(checkList)

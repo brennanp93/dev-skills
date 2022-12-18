@@ -29,7 +29,9 @@ export default function NewCheckListPage({ resetButton, checkList, addCheckListI
         {checkList.map((step, idx) => (
           <div className="step-card" key={step._id}>
             <p>{step.stepTitle}</p>
-            <p>{step.terminalCommand ? `Enter into Terminal:  ${step.terminalCommand}` : ''}</p>
+            {step.terminalCommand ?
+              <p> `Enter into Terminal: <span> ${step.terminalCommand}`</span></p>
+              : ''}
             <button onClick={() => deleteListItem(step._id)}>Delete</button>
             <button onClick={() => navigate(`/blanklist/${step._id}/update`)}>Edit Note</button>
             <button onClick={() => handleUpdateBoolean(idx, step._id)} >
