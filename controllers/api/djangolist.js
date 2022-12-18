@@ -2,8 +2,15 @@ const DjangoList = require('../../models/djangoList');
 
 module.exports = {
     index,
-    updateBool
+    updateBool, 
+    reset
 };
+
+async function reset(req, res) {
+    const resetList = await DjangoList.updateMany({completed: true}, { completed: false})
+    res.json(resetList)
+}
+
 
 async function index(req, res) {
     const entireCheckList = await DjangoList.find({});

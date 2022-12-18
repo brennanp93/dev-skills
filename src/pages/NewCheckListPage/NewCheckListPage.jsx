@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './NewCheckListPage.css'
 import AddItemForm from "../../components/AddItemForm/AddItemForm"
 
-export default function NewCheckListPage({ checkList, addCheckListItem, deleteListItem, updateListItem, updateBoolean }) {
+export default function NewCheckListPage({ resetButton, checkList, addCheckListItem, deleteListItem, updateListItem, updateBoolean }) {
   const navigate = useNavigate();
   // console.log(checkList)
 
@@ -12,10 +12,18 @@ export default function NewCheckListPage({ checkList, addCheckListItem, deleteLi
     // console.log(checkList[idx], id)
   }
 
+  // function handleResetButton() {
+  //   resetButton(checkList)
+  //   // console.log(checkList)
+  // }
+
   return (
     <>
       <div className='add-item-form'>
         <AddItemForm addCheckListItem={addCheckListItem} />
+      </div>
+      <div>
+        <button onClick={() => resetButton(checkList)}>Reset List</button>
       </div>
       <div className='checklist-box'>
         {checkList.map((step, idx) => (

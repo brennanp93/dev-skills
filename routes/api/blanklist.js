@@ -8,6 +8,8 @@ const blankListCtrl = require('../../controllers/api/blanklist')
 // GET /api/blanklist
 router.get('/', blankListCtrl.index);
 
+router.put('/reset', blankListCtrl.reset)
+
 // Update Boolean Only
 router.put('/:id', blankListCtrl.updateBool);
 

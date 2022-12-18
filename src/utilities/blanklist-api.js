@@ -22,6 +22,8 @@ export async function updateListItem(booleanData, id) {
   return sendRequest(`${BASE_URL}/${id}/update`, 'PUT', booleanData);
 }
 
-
+export async function resetButton(entireCheckList) {
+  return sendRequest(`${BASE_URL}/reset`, 'PUT', entireCheckList);
+}
 
 // /api/blanklist/${id}/update

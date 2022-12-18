@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 // import { useState } from "react";
 
 
-export default function CheckList({ devSkillsList, updateBoolean, djangoList, expressList }) {
+export default function CheckList({ devSkillsList, updateBoolean, djangoList, expressList, resetButton }) {
   let { checklist } = useParams();
   // const [devSkills, setDevSkills] = useState([])
   // const [currentDevSkill, setCurrentDevSkill] = useState(null);
@@ -15,9 +15,14 @@ export default function CheckList({ devSkillsList, updateBoolean, djangoList, ex
     updateBoolean(oneStep[idx], id)
   }
 
+  
   return (
     <>
-      <div></div>
+      <div>
+      <div>
+        <button onClick={() => resetButton(oneStep)}>Reset List</button>
+      </div>
+      </div>
       <div>
         {oneStep.map((step, idx) => (
           <div className="step-card" key={step._id}>

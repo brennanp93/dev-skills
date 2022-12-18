@@ -4,8 +4,14 @@ const ExpressList = require('../../models/expresslist');
 
 module.exports = {
     index,
-    updateBool
+    updateBool,
+    reset
 };
+
+async function reset(req, res) {
+    const resetList = await ExpressList.updateMany({completed: true}, { completed: false})
+    res.json(resetList)
+}
 
 async function index(req, res) {
     const entireCheckList = await ExpressList.find({});

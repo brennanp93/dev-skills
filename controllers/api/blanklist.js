@@ -5,8 +5,15 @@ module.exports = {
     index,
     delete: deleteItem,
     update,
-    updateBool
+    updateBool,
+    reset 
+
 };
+
+async function reset(req, res) {
+    const resetList = await BlankList.updateMany({completed: true}, { completed: false})
+    res.json(resetList)
+}
 
 async function index(req, res) {
     const entireCheckList = await BlankList.find({ user: req.user._id });

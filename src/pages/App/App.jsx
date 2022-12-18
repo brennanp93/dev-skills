@@ -60,6 +60,18 @@ export default function App() {
     setExpressCheckList(allExpressSkills);
   }
 
+  async function resetButton(entireCheckList) {
+    await checkListAPI.resetButton(entireCheckList)
+    await djangoListAPI.resetButton(entireCheckList)
+    await expressListAPI.resetButton(entireCheckList)
+    const newlyResetList = await checkListAPI.getAll()
+    const resetDjangoList = await djangoListAPI.getAll()
+    const resetExpressList = await expressListAPI.getAll()
+    setCheckList(newlyResetList)
+    setDjangoCheckList(resetDjangoList);
+    setExpressCheckList(resetExpressList);
+  }
+
   useEffect(function () {
     async function getAllItems() {
       const entireCheckList = await checkListAPI.getAll();
@@ -87,6 +99,7 @@ export default function App() {
                 deleteListItem={deleteListItem}
                 updateListItem={updateListItem}
                 updateBoolean={updateBoolean}
+                resetButton={resetButton}
               />
             }
             />
@@ -96,6 +109,7 @@ export default function App() {
               updateBoolean={updateBoolean}
               expressList={expressList}
               djangoList={djangoList}
+              resetButton={resetButton}
             />} />
             <Route path="/blanklist/:id/update" element={<UpdateCheckListForm checkList={checkList} updateListItem={updateListItem} />} />
             {/* <Route path="/checklist/:id/update" element={UpdateCheckListForm} /> */}
