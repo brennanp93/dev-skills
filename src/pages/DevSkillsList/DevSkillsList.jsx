@@ -12,16 +12,17 @@ export default function CheckList({ updateBoolean, djangoList, expressList, rese
 
   return (
     <>
-
       <h1 className="checklist-name">{checklist}&nbsp;Checklist</h1>
       <div className='checklist-box'>
+        <div>
 
         {checklist === 'Django' ?
           <a href={`${djangoDocs}`} target='_blank'>Click Here to view the Django Documentation</a>
           :
           <a href={`${expressDocs}`} target='_blank'>Click Here to view the Express Documentation</a>
         }
-        <button onClick={() => resetButton(oneStep)} className='reset-btn'>Reset List</button>
+        <button className='reset-btn' onClick={() => resetButton(oneStep)} >Reset List</button>
+        </div>
 
         {oneStep.map((step, idx) => (
           <div className="step-card" key={step._id}

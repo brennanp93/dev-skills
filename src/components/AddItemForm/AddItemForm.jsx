@@ -31,7 +31,7 @@ export default function AddItemForm({ addCheckListItem }) {
   }
 
   return (
-    <div>
+    <div className="add-item-form">
       <form onSubmit={handleSubmit}>
         <div>
           <input
