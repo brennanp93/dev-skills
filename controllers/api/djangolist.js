@@ -15,7 +15,6 @@ async function reset(req, res) {
 async function index(req, res) {
     const entireCheckList = await DjangoList.find({}).sort({sortOrder: 1});
     // entireCheckList.sort((a, b) => a.entireCheckList.sortOrder - b.entireCheckList.sortOrder);
-    console.log(entireCheckList)
     res.json(entireCheckList)
 }
 

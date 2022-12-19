@@ -87,7 +87,7 @@ const ExpressList = require('./models/expresslist');
     },
     {
       stepTitle: "Install the express-generator",
-      description: "express-generator creates a 'skeleton' Express Application",
+      description: "Express-generator creates a 'skeleton' Express Application",
       terminalCommand: "npm install -g express-generator",
       completed: false,
       otherStepSpecificData: "If your system won't install or run express-generator, it can be used with 'npx' infront of the above command",
@@ -96,7 +96,7 @@ const ExpressList = require('./models/expresslist');
     },
     {
       stepTitle: "Create your project!",
-      description: "make sure to specify '-e' before the name of your project. This specifies the View Engine as 'EJS'",
+      description: "Make sure to specify '-e' before the name of your project. This specifies the View Engine as 'EJS'",
       terminalCommand: "express -e <name of your choosing for this project>",
       completed: false,
       otherStepSpecificData: "",

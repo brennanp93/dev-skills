@@ -6,21 +6,21 @@ export default function HomePage() {
       <div className="checkListBtnBox">
         <h1>Pick A Check List</h1>
         <div>
-          <button >
+          <button className="home-button" >
             <h2>
               <Link to="/Express">Express</Link>
             </h2>
           </button>
         </div>
         <div>
-          <button>
+          <button className="home-button">
             <h2>
               <Link to="/Django">Django</Link>
             </h2>
           </button>
         </div>
         <div>
-          <button>
+          <button className="home-button">
             <h2>
               <Link to="/blanklist">New Form</Link>
             </h2>

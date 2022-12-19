@@ -4,10 +4,6 @@ import { useParams } from "react-router-dom";
 
 export default function CheckList({ devSkillsList, updateBoolean, djangoList, expressList, resetButton }) {
   let { checklist } = useParams();
-  // const [devSkills, setDevSkills] = useState([])
-  // const [currentDevSkill, setCurrentDevSkill] = useState(null);
-  // const [steps, setSteps] = useState([]);
-
   let oneStep = checklist === 'Django' ? djangoList : expressList
 
   function handleUpdateBoolean(idx, id) {
@@ -15,21 +11,23 @@ export default function CheckList({ devSkillsList, updateBoolean, djangoList, ex
     updateBoolean(oneStep[idx], id)
   }
 
-
-
-
   return (
     <>
       <div>
-        <div>
-          <button onClick={() => resetButton(oneStep)} className='rest-btn'>Reset List</button>
-        </div>
+        <h1>{checklist} Check List</h1>
+        <button onClick={() => resetButton(oneStep)} className='reset-btn'>Reset List</button>
       </div>
       <div className='checklist-box'>
+        <div>
+          {checklist === 'Django' ?
+            <a href="https://docs.djangoproject.com/en/4.1/" target='_blank'>Click Here to view the Django Documentation</a>
+            :
+            <a href="https://expressjs.com/" target='_blank'>Click Here to view the Express Documentation</a>
+          }
+        </div>
         {oneStep.map((step, idx) => (
           <div className="step-card" key={step._id}
-          style={{textDecoration: step.completed && 'line-through'}}>
-            <div></div>
+            style={{ textDecoration: step.completed && 'line-through' }}>
             <h2><span>({idx + 1})</span>&nbsp;{step.stepTitle}</h2>
             <hr />
             {step.description ?
