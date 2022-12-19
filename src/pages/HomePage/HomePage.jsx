@@ -3,30 +3,19 @@ import { Link } from "react-router-dom";
 export default function HomePage() {
   return (
     <div>
-      <div className="checkListBtnBox">
+      <div className="home-page-box">
         <h1>Pick A Check List</h1>
-        <div>
-          <button className="home-button" >
-            <h2>
-              <Link to="/Express">Express</Link>
-            </h2>
-          </button>
-        </div>
-        <div>
-          <button className="home-button">
-            <h2>
-              <Link to="/Django">Django</Link>
-            </h2>
-          </button>
-        </div>
-        <div>
-          <button className="home-button">
-            <h2>
-              <Link to="/blanklist">New Form</Link>
-            </h2>
-          </button>
-        </div>
+        <Link to="/Express" className="home-page-box-button">
+          <h2>Express</h2>
+        </Link>
+        <Link to="/Django" className="home-page-box-button">
+          <h2>Django</h2>
+        </Link>
+        <Link to="/blanklist" className="home-page-box-button">
+          <h2>New Form</h2>
+        </Link>
       </div>
     </div>
+
   );
 }

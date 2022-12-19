@@ -2,27 +2,26 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
+/* Components */
 import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
 import DevSkillsList from '../DevSkillsList/DevSkillsList'
-import NavBar from '../../components/NavBar/NavBar';
-/* Below is just for testing. Make sure to delete once data is seeded to DB */
+import Header from '../../components/Header/Header';
+import Footer from "../../components/Footer/Footer"
+import NavBar from '../../components/Header/Header';
+import UpdateCheckListForm from '../UpdateCheckListForm/UpdateCheckListForm';
+import NewCheckListPage from '../NewCheckListPage/NewCheckListPage';
+/* API's */
 import * as checkListAPI from '../../utilities/blanklist-api'
 import * as djangoListAPI from '../../utilities/djangolist-api'
 import * as expressListAPI from '../../utilities/expresslist-api'
-// import * as devSkillsAPI from '../../utilities/devskills-api'
-import UpdateCheckListForm from '../UpdateCheckListForm/UpdateCheckListForm';
-import NewCheckListPage from '../NewCheckListPage/NewCheckListPage';
-
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [checkList, setCheckList] = useState([]);
   const [djangoList, setDjangoCheckList] = useState([]);
   const [expressList, setExpressCheckList] = useState([]);
-  // const [devSkillsList, setDevSkillsList] = useState([]);
   const navigate = useNavigate();
-
 
   // Adds an item to the checklist
   async function addCheckListItem(checkListData) {
@@ -36,7 +35,6 @@ export default function App() {
     const afterDeleteList = checkList.filter(note => note._id !== id);
     setCheckList(afterDeleteList);
   }
-  // const updatedItem = await checkListAPI.updateListItem(updateCheckListFormData, id);
 
   //Updates the specific item
   async function updateListItem(updateCheckListFormData, id) {
@@ -48,7 +46,6 @@ export default function App() {
 
   // Sets the boolean value in the DB so that it renders buttom dynamically. 
   async function updateBoolean(booleanData, id) {
-    // console.log(booleanData)
     await checkListAPI.updateBoolean(booleanData, id);
     await expressListAPI.updateBoolean(booleanData, id);
     await djangoListAPI.updateBoolean(booleanData, id);
@@ -77,11 +74,9 @@ export default function App() {
       const entireCheckList = await checkListAPI.getAll();
       const allDjangoSkills = await djangoListAPI.getAll();
       const allExpressSkills = await expressListAPI.getAll();
-      // const entireDevSkillsList = await devSkillsAPI.getAll();
       setCheckList(entireCheckList)
       setDjangoCheckList(allDjangoSkills);
       setExpressCheckList(allExpressSkills);
-      // setDevSkillsList(entireDevSkillsList)
     };
     getAllItems();
   }, [])
@@ -90,7 +85,7 @@ export default function App() {
     <main className="App">
       {user ?
         <>
-          <NavBar user={user} setUser={setUser} />
+          <Header user={user} setUser={setUser} />
           <Routes>
             <Route path="/blanklist" element={
               <NewCheckListPage
@@ -105,16 +100,12 @@ export default function App() {
             />
             <Route path="/" element={<HomePage />} />
             <Route path="/:checklist" element={<DevSkillsList
-              // devSkillsList={devSkillsList}
               updateBoolean={updateBoolean}
               expressList={expressList}
               djangoList={djangoList}
               resetButton={resetButton}
             />} />
             <Route path="/blanklist/:id/update" element={<UpdateCheckListForm checkList={checkList} updateListItem={updateListItem} />} />
-            {/* <Route path="/checklist/:id/update" element={UpdateCheckListForm} /> */}
-            {/* <Route path="/newchecklist" element={<BlankListForm addCheckListItem={addCheckListItem} />} /> */}
-            {/* <Route path="/blanklist/:newListSteps" element={<BlankList newLists={newLists} />} /> */}
           </Routes>
         </>
         :
@@ -122,6 +113,7 @@ export default function App() {
           <AuthPage setUser={setUser} />
         </>
       }
+      <Footer />
     </main>
   );
 }

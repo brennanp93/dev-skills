@@ -1,11 +1,10 @@
 import { useParams } from "react-router-dom";
-// import { useState } from "react";
 
-
-export default function CheckList({ devSkillsList, updateBoolean, djangoList, expressList, resetButton }) {
+export default function CheckList({ updateBoolean, djangoList, expressList, resetButton }) {
   let { checklist } = useParams();
   let oneStep = checklist === 'Django' ? djangoList : expressList
-
+  let djangoDocs = 'https://docs.djangoproject.com/en/4.1/'
+  let expressDocs = 'https://expressjs.com/'
   function handleUpdateBoolean(idx, id) {
     oneStep[idx].completed ? oneStep[idx].completed = false : oneStep[idx].completed = true;
     updateBoolean(oneStep[idx], id)
@@ -13,41 +12,42 @@ export default function CheckList({ devSkillsList, updateBoolean, djangoList, ex
 
   return (
     <>
-      <div>
-        <h1>{checklist} Check List</h1>
-        <button onClick={() => resetButton(oneStep)} className='reset-btn'>Reset List</button>
-      </div>
+
+      <h1 className="checklist-name">{checklist}&nbsp;Checklist</h1>
       <div className='checklist-box'>
-        <div>
-          {checklist === 'Django' ?
-            <a href="https://docs.djangoproject.com/en/4.1/" target='_blank'>Click Here to view the Django Documentation</a>
-            :
-            <a href="https://expressjs.com/" target='_blank'>Click Here to view the Express Documentation</a>
-          }
-        </div>
+
+        {checklist === 'Django' ?
+          <a href={`${djangoDocs}`} target='_blank'>Click Here to view the Django Documentation</a>
+          :
+          <a href={`${expressDocs}`} target='_blank'>Click Here to view the Express Documentation</a>
+        }
+        <button onClick={() => resetButton(oneStep)} className='reset-btn'>Reset List</button>
+
         {oneStep.map((step, idx) => (
           <div className="step-card" key={step._id}
             style={{ textDecoration: step.completed && 'line-through' }}>
             <h2><span>({idx + 1})</span>&nbsp;{step.stepTitle}</h2>
             <hr />
-            {step.description ?
-              <><p>{step.description}</p> <hr /></>
-              : ''
-            }
-            {step.terminalCommand ?
-              <p> Enter into Terminal: <span className='terminal-command'> {step.terminalCommand}</span></p>
-              : <p></p>}
-            <hr />
-            {step.otherStepSpecificData ?
-              <><p>{step.otherStepSpecificData}</p> <hr /></>
-              : <p></p>}
+            <ul>
+              {step.description ?
+                <><li>{step.description}</li><hr /></>
+                : ''
+              }
+              {step.terminalCommand ?
+                <li> Enter into Terminal: <span className='terminal-command'> {step.terminalCommand}</span></li>
+                : ''
+              }
+              <hr />
+              {step.otherStepSpecificData ?
+                <><li>{step.otherStepSpecificData}</li> <hr /></>
+                : ''}
+            </ul>
             <button onClick={() => handleUpdateBoolean(idx, step._id)} >
               {step.completed ? 'Undo 🔙' : 'Click to Mark as Complete ✅'}
             </button>
           </div>
         ))}
       </div>
-
     </>
   )
 }

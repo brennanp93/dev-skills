@@ -23,12 +23,15 @@ export default function NewCheckListPage({ resetButton, checkList, addCheckListI
         <AddItemForm addCheckListItem={addCheckListItem} />
       </div>
       <div>
-        <button onClick={() => resetButton(checkList)} className='rest-btn'>Reset List</button>
       </div>
       <div className='checklist-box'>
+        <div>
+          <h1>My Checklist</h1>
+          <button onClick={() => resetButton(checkList)} className='reset-btn'>Reset List</button>
+        </div>
         {checkList.map((step, idx) => (
           <div className="step-card" key={step._id}
-          style={{textDecoration: step.completed && 'line-through'}}>
+            style={{ textDecoration: step.completed && 'line-through' }}>
             <p><span>({idx + 1})</span>&nbsp;{step.stepTitle}</p>
             {step.terminalCommand ?
               <p> Enter into Terminal: <span className='terminal-command'> {step.terminalCommand}</span></p>

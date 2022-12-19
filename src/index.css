@@ -26,9 +26,24 @@ body {
   font-family: 'Chivo Mono', monospace;
   display: grid;
   grid-template-rows: 50px 1fr 50px;
-  background-color: whitesmoke;
-  padding: 2vmin;
+  background-color: var(--tan-2);
+  /* padding: 2vmin; */
   height: 100vh;
+  /* height: 100%; */
+}
+
+main {
+  margin: 0;
+  display: grid;
+
+
+}
+
+.checklist-name {
+
+  /* display: grid; */
+  /* margin: 10%; */
+  padding: 0;
 }
 
 /* code {
@@ -37,13 +52,14 @@ body {
 } */
 
 .reset-btn {
-  height: 5rem;
-  background-color: red;
+  height:fit-content;
+  background-color: rgb(199, 8, 8);
   color: white;
   font-family: 'Chivo Mono', monospace;
-  border-radius: 50%;
-  border: solid black 4px;
+  max-width: fit-content;
+  border: solid black 2px;
 }
+
 /* 
 #root {
   height: 100%;
@@ -55,8 +71,39 @@ p.error-message {
 }
 
 .terminal-command {
-  font-weight:bolder;
-  text-decoration:underline
+  font-weight: bolder;
+  text-decoration: underline
+}
+
+.home-page-box {
+  background-color: rgb(197, 192, 192);
+  display: grid;
+  place-items: center;
+  margin: 5% 20% 5% 20%;
+  border-radius: 15px;
+  border: solid black 2px;
+  /* max-width: 45%; */
+}
+
+.home-page-box-button {
+  background-color: var(--dark-blue);
+  margin: 1%;
+  border: solid black 2px;
+  border-radius: 15px;
+  min-width: 15vw;
+  max-width: 20vw;
+  font-family: 'Chivo Mono', monospace;
+  color: black;
+}
+
+.home-page-box-button:hover {
+  background-color: var(--light-grey);
+  margin: 1%;
+  border: solid grey 2px;
+  min-width: 15vw;
+  max-width: 20vw;
+  font-family: 'Chivo Mono', monospace;
+  color: black;
 }
 
 .step-card {
@@ -65,15 +112,16 @@ p.error-message {
   margin: 1rem;
   padding: 1rem;
   border-radius: 15px;
-  max-width: 3fr;
+  /* width: 50%;
+  height:  50%; */
   background-color: var(--light-grey);
-
+  /* background-color: whitesmoke; */
 }
 
 .checklist-box {
   display: grid;
-  /* grid-template-rows: repeat(autofill);
-  grid-template-columns: repeat(2, 3fr); */
+  grid-template-rows: repeat(autofill);
+  /* grid-template-columns: repeat(2, 3fr); */
   border: solid black 2px;
   margin: 10px;
   padding: 1rem;
@@ -87,28 +135,48 @@ p.error-message {
   padding: 1rem;
 }
 
+footer {
+  display: flex;
+  font-family: 'Chivo Mono', monospace;
+  background-color: var(--dark-blue);
+  margin: 0%;
+  border-top: solid black 2px;
+  /* padding-left: 1%; */
+  padding: 1%;
+}
+
 button {
   margin: 5px;
   border-radius: 5px;
 }
 
-form > button {
+form>button {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.25vmin;
   color: var(--text-light);
 }
-header{
+
+header {
   background-color: var(--dark-blue);
+  border-bottom: solid black 2px;
+  padding: 1%;
   margin: 0;
 }
+
 nav {
   margin: 0;
 }
-.home-button{
+
+.home-button {
   width: 25%;
   background-color: var(--light-blue);
 }
+
+ul {
+  list-style: none;
+}
+
 /* label {
   font-size: 2vmin;
   display: flex;
