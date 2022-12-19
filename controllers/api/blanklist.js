@@ -16,7 +16,6 @@ async function reset(req, res) {
 }
 
 async function index(req, res) {
-    console.log(req.user._id)
     const entireCheckList = await BlankList.find({ user: req.user._id });
     // const entireCheckList = await BlankList.find({});
     res.json(entireCheckList)
