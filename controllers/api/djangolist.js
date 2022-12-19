@@ -1,4 +1,4 @@
-const DjangoList = require('../../models/tuna');
+const DjangoList = require('../../models/djangolist');
 
 module.exports = {
     index,
