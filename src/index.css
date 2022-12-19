@@ -8,21 +8,32 @@
   --orange: #F67F00;
   --text-light: #968c84;
   --text-dark: #615954;
+  --light-blue: #7395AE;
+  --dark-blue: #557A95;
+  --dark-grey: #5D5C61;
+  --light-grey: #938E93;
+  --tan: #B1A296;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Chivo Mono', monospace;
+  display: grid;
+  grid-template-rows: 50px 1fr 50px;
+
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
   /* background-color: var(--tan-4); */
-  background-color: #F8EEE7 ;
+  background-color: var(--tan-1);
   padding: 2vmin;
   height: 100vh;
 }
@@ -30,6 +41,15 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.rest-btn {
+  height: 5rem;
+  background-color: red;
+  color: white;
+  font-family: 'Chivo Mono', monospace;
+  border-radius: 50%;
+  border: solid black 4px;
 }
 
 #root {
@@ -91,12 +111,47 @@ p.error-message {
   text-align: center;
 }
 
-/* form {
+.terminal-command {
+  font-weight: bold;
+}
+
+.step-card {
+  color: black;
+  border: solid black 2px;
+  margin: 1rem;
+  border-radius: 15px;
+  max-width: 3fr;
+  background-color: var(--light-grey);
+
+}
+
+.checklist-box {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-rows: repeat(autofill);
+  grid-template-columns: repeat(2, 3fr);
+  border: solid black 2px;
+  margin: 10px;
+  background-color: var(--dark-blue);
+  border-radius: 15px;
+}
+
+.add-item-form {
+  border: solid black 2px;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+button {
+  margin: 5px;
+  border-radius: 5px;
+}
+
+form > button {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1.25vmin;
   color: var(--text-light);
-} */
+}
 
 /* label {
   font-size: 2vmin;

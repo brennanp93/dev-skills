@@ -66,7 +66,7 @@ export default function AddItemForm({ addCheckListItem }) {
             pattern=".{2,}"
           />
         </div>
-        <button type="submit">Add To Do</button>
+        <button type="submit" className="submit-btn">Add To Do</button>
       </form>
     </div>
   );

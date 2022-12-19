@@ -9,6 +9,7 @@ const djangoListSchema = new Schema({
     terminalCommand: String,
     completed: Boolean,
     otherStepSpecificData: String,
+    sortOrder: Number,
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',

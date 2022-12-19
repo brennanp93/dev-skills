@@ -23,19 +23,19 @@ export default function NewCheckListPage({ resetButton, checkList, addCheckListI
         <AddItemForm addCheckListItem={addCheckListItem} />
       </div>
       <div>
-        <button onClick={() => resetButton(checkList)}>Reset List</button>
+        <button onClick={() => resetButton(checkList)} className='rest-btn'>Reset List</button>
       </div>
       <div className='checklist-box'>
         {checkList.map((step, idx) => (
           <div className="step-card" key={step._id}>
-            <p>{step.stepTitle}</p>
+            <p><span>({idx + 1})</span>&nbsp;{step.stepTitle}</p>
             {step.terminalCommand ?
-              <p> `Enter into Terminal: <span> ${step.terminalCommand}`</span></p>
+              <p> Enter into Terminal: <span className='terminal-command'> ${step.terminalCommand}</span></p>
               : ''}
             <button onClick={() => deleteListItem(step._id)}>Delete</button>
             <button onClick={() => navigate(`/blanklist/${step._id}/update`)}>Edit Note</button>
             <button onClick={() => handleUpdateBoolean(idx, step._id)} >
-              {step.completed ? 'Undo 🔙' : 'Click to Mark as Complete ✅'}
+              {step.completed ? 'Undo 🔙' : 'Complete ✅'}
             </button>
           </div>
         ))}

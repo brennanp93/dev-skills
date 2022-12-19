@@ -16,20 +16,31 @@ export default function CheckList({ devSkillsList, updateBoolean, djangoList, ex
   }
 
 
+
+
   return (
     <>
       <div>
         <div>
-          <button onClick={() => resetButton(oneStep)}>Reset List</button>
+          <button onClick={() => resetButton(oneStep)} className='rest-btn'>Reset List</button>
         </div>
       </div>
-      <div>
+      <div className='checklist-box'>
         {oneStep.map((step, idx) => (
           <div className="step-card" key={step._id}>
-            <p>{step.stepTitle}</p>
+            <h2><span>{idx + 1}</span>&nbsp;{step.stepTitle}</h2>
+            <hr />
+            {step.description ?
+              <><p>{step.description}</p> <hr /></>
+              : ''
+            }
             {step.terminalCommand ?
               <p> `Enter into Terminal:  ${step.terminalCommand}`</p>
-              : ''}
+              : <p></p>}
+            <hr />
+            {step.otherStepSpecificData ?
+              <><p>{step.otherStepSpecificData}</p> <hr /></>
+              : <p></p>}
             <button onClick={() => handleUpdateBoolean(idx, step._id)} >
               {step.completed ? 'Undo 🔙' : 'Click to Mark as Complete ✅'}
             </button>
