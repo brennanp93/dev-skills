@@ -27,10 +27,11 @@ export default function NewCheckListPage({ resetButton, checkList, addCheckListI
       </div>
       <div className='checklist-box'>
         {checkList.map((step, idx) => (
-          <div className="step-card" key={step._id}>
+          <div className="step-card" key={step._id}
+          style={{textDecoration: step.completed && 'line-through'}}>
             <p><span>({idx + 1})</span>&nbsp;{step.stepTitle}</p>
             {step.terminalCommand ?
-              <p> Enter into Terminal: <span className='terminal-command'> ${step.terminalCommand}</span></p>
+              <p> Enter into Terminal: <span className='terminal-command'> {step.terminalCommand}</span></p>
               : ''}
             <button onClick={() => deleteListItem(step._id)}>Delete</button>
             <button onClick={() => navigate(`/blanklist/${step._id}/update`)}>Edit Note</button>

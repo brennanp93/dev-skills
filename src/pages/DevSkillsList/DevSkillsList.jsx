@@ -27,15 +27,17 @@ export default function CheckList({ devSkillsList, updateBoolean, djangoList, ex
       </div>
       <div className='checklist-box'>
         {oneStep.map((step, idx) => (
-          <div className="step-card" key={step._id}>
-            <h2><span>{idx + 1}</span>&nbsp;{step.stepTitle}</h2>
+          <div className="step-card" key={step._id}
+          style={{textDecoration: step.completed && 'line-through'}}>
+            <div></div>
+            <h2><span>({idx + 1})</span>&nbsp;{step.stepTitle}</h2>
             <hr />
             {step.description ?
               <><p>{step.description}</p> <hr /></>
               : ''
             }
             {step.terminalCommand ?
-              <p> `Enter into Terminal:  ${step.terminalCommand}`</p>
+              <p> Enter into Terminal: <span className='terminal-command'> {step.terminalCommand}</span></p>
               : <p></p>}
             <hr />
             {step.otherStepSpecificData ?
