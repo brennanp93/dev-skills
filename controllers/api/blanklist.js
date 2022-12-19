@@ -21,7 +21,7 @@ async function index(req, res) {
     res.json(entireCheckList)
 }
 
-async function update(req, res) {
+async function update(req, res, next) {
     try {
         await BlankList.findByIdAndUpdate({ _id: req.params.id }, req.body)
         const listItem = await BlankList.find({ user: req.user._id })

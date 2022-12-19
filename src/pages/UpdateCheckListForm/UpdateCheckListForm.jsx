@@ -8,16 +8,10 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
   let updatedlistItem = checkList.find(listItem => listItem._id === id);
   // console.log(updatedlistItem)
   const [updatedCheckList, setUpdatedCheckList] = useState(updatedlistItem);
-  // const [updatedCheckList, setUpdatedCheckList] = useState({
-  //   stepTitle: updateListItem.stepTitle,
-  //   description: updateListItem.description,
-  //   terminalCommand: updateListItem.terminalCommand,
-  //   completed: false
-  // });
 
   function handleChange(evt) {
     // const editFormData = {...updatedlistItem, stepTitle: evt.target.value, description: evt.target.value, terminalCommand: evt.target.value }
-    const editFormData = { ...updatedlistItem, [evt.target.name]: evt.target.value }
+    const editFormData = { ...updatedCheckList, [evt.target.name]: evt.target.value }
     setUpdatedCheckList(editFormData);
   }
 
@@ -37,7 +31,7 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
             name="stepTitle"
             value={updatedCheckList.stepTitle}
             onChange={handleChange}
-            placeholder=""
+            placeholder="New To-Do"
             required
             pattern=".{2,}"
           />

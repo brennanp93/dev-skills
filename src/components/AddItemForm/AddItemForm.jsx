@@ -23,10 +23,7 @@ export default function AddItemForm({ addCheckListItem }) {
 
   // Handles the form fields being filled out
   function handleChange(evt) {
-    const formFields = {
-      ...addedItem,
-      [evt.target.name]: evt.target.value,
-    };
+    const formFields = { ...addedItem, [evt.target.name]: evt.target.value };
     setAddedItem(formFields);
   }
 

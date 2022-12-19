@@ -27,7 +27,7 @@ const port = process.env.PORT || 3001;
 app.use('/api/users', require('./routes/api/users'));
 const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/blanklist',ensureLoggedIn, require('./routes/api/blanklist'));
-app.use('/api/devskills', ensureLoggedIn, require('./routes/api/devskills'));
+// app.use('/api/devskills', ensureLoggedIn, require('./routes/api/devskills'));
 app.use('/api/djangolist', ensureLoggedIn, require('./routes/api/djangolist'));
 app.use('/api/expresslist', ensureLoggedIn, require('./routes/api/expresslist'));
 
