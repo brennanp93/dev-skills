@@ -25,10 +25,13 @@ const port = process.env.PORT || 3001;
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/blanklist', require('./routes/api/blanklist'));
-app.use('/api/devskills', require('./routes/api/devskills'));
-app.use('/api/djangolist', require('./routes/api/djangolist'));
-app.use('/api/expresslist', require('./routes/api/expresslist'));
+const ensureLoggedIn = require('./config/ensureLoggedIn');
+app.use('/api/blanklist',ensureLoggedIn, require('./routes/api/blanklist'));
+app.use('/api/devskills', ensureLoggedIn, require('./routes/api/devskills'));
+app.use('/api/djangolist', ensureLoggedIn, require('./routes/api/djangolist'));
+app.use('/api/expresslist', ensureLoggedIn, require('./routes/api/expresslist'));
+
+
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
