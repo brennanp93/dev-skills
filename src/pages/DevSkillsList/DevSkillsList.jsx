@@ -1,4 +1,12 @@
 import { useParams } from "react-router-dom";
+import {
+  MDBBtn, MDBBtnGroup, MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBTypography
+} from 'mdb-react-ui-kit';
 
 export default function CheckList({ updateBoolean, djangoList, expressList, resetButton }) {
   let { checklist } = useParams();
@@ -13,42 +21,47 @@ export default function CheckList({ updateBoolean, djangoList, expressList, rese
   return (
     <>
       <h1 className="checklist-name">{checklist}&nbsp;Checklist</h1>
-      <div className='checklist-box'>
+      {/* <div className='checklist-box'> */}
+      <MDBContainer breakpoint="sm">
         <div>
-
-        {checklist === 'Django' ?
-          <a href={`${djangoDocs}`} target='_blank'>Click Here to view the Django Documentation</a>
-          :
-          <a href={`${expressDocs}`} target='_blank'>Click Here to view the Express Documentation</a>
-        }
-        <button className='reset-btn' onClick={() => resetButton(oneStep)} >Reset List</button>
+          {checklist === 'Django' ?
+            <a href={`${djangoDocs}`} target='_blank'>Click Here to view the Django Documentation</a>
+            :
+            <a href={`${expressDocs}`} target='_blank'>Click Here to view the Express Documentation</a>
+          }
+          <MDBBtn color='dark' onClick={() => resetButton(oneStep)} >Reset List</MDBBtn>
         </div>
 
         {oneStep.map((step, idx) => (
-          <div className="step-card" key={step._id}
-            style={{ textDecoration: step.completed && 'line-through' }}>
-            <h2><span>({idx + 1})</span>&nbsp;{step.stepTitle}</h2>
-            <hr />
-            <ul>
-              {step.description ?
-                <><li>{step.description}</li><hr /></>
-                : ''
-              }
-              {step.terminalCommand ?
-                <li> Enter into Terminal: <span className='terminal-command'> {step.terminalCommand}</span></li>
-                : ''
-              }
-              <hr />
-              {step.otherStepSpecificData ?
-                <><li>{step.otherStepSpecificData}</li> <hr /></>
-                : ''}
-            </ul>
-            <button onClick={() => handleUpdateBoolean(idx, step._id)} >
-              {step.completed ? 'Undo 🔙' : 'Click to Mark as Complete ✅'}
-            </button>
-          </div>
+          <MDBCard background='secondary' className='text-white mb-3' border='dark' key={step._id}>
+            <MDBCardBody>
+              <div key={step._id}
+                style={{ textDecoration: step.completed && 'line-through' }}>
+                <MDBCardTitle><span>({idx + 1})</span>&nbsp;{step.stepTitle}</MDBCardTitle>
+                <hr />
+
+                {step.description ?
+                  <><MDBCardText>{step.description}</MDBCardText><hr /></>
+                  : ''
+                }
+                {step.terminalCommand ?
+                  <MDBCardText> Enter into Terminal: <span className='terminal-command'> {step.terminalCommand}</span></MDBCardText>
+                  : ''
+                }
+                <hr />
+                {step.otherStepSpecificData ?
+                  <><MDBCardText>{step.otherStepSpecificData}</MDBCardText> <hr /></>
+                  : ''
+                  }
+                <button onClick={() => handleUpdateBoolean(idx, step._id)} >
+                  {step.completed ? 'Undo 🔙' : 'Click to Mark as Complete ✅'}
+                </button>
+              </div>
+            </MDBCardBody>
+          </MDBCard>
         ))}
-      </div>
+      </MDBContainer>
+      {/* </div> */}
     </>
   )
 }

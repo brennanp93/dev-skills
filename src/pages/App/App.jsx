@@ -15,7 +15,11 @@ import NewCheckListPage from '../NewCheckListPage/NewCheckListPage';
 import * as checkListAPI from '../../utilities/blanklist-api'
 import * as djangoListAPI from '../../utilities/djangolist-api'
 import * as expressListAPI from '../../utilities/expresslist-api'
-
+import {
+  MDBInput,
+  MDBBtn,
+  MDBContainer
+} from 'mdb-react-ui-kit';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -86,35 +90,37 @@ export default function App() {
     <main className="App">
       {user ?
         <>
-          <Header user={user} setUser={setUser} />
-          <Routes>
-            <Route path="/blanklist" element={
-              <NewCheckListPage
-                checkList={checkList}
-                addCheckListItem={addCheckListItem}
-                deleteListItem={deleteListItem}
-                updateListItem={updateListItem}
-                updateBoolean={updateBoolean}
-                resetButton={resetButton}
+   
+            <Header user={user} setUser={setUser} />
+            <Routes>
+              <Route path="/blanklist" element={
+                <NewCheckListPage
+                  checkList={checkList}
+                  addCheckListItem={addCheckListItem}
+                  deleteListItem={deleteListItem}
+                  updateListItem={updateListItem}
+                  updateBoolean={updateBoolean}
+                  resetButton={resetButton}
+                />
+              }
               />
-            }
-            />
-            <Route path="/" element={<HomePage />} />
-            <Route path="/:checklist" element={<DevSkillsList
-              updateBoolean={updateBoolean}
-              expressList={expressList}
-              djangoList={djangoList}
-              resetButton={resetButton}
-            />} />
-            <Route path="/blanklist/:id/update" element={<UpdateCheckListForm checkList={checkList} updateListItem={updateListItem} />} />
-          </Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/:checklist" element={<DevSkillsList
+                updateBoolean={updateBoolean}
+                expressList={expressList}
+                djangoList={djangoList}
+                resetButton={resetButton}
+              />} />
+              <Route path="/blanklist/:id/update" element={<UpdateCheckListForm checkList={checkList} updateListItem={updateListItem} />} />
+            </Routes>
+            <Footer />
+  
         </>
         :
         <>
           <AuthPage setUser={setUser} />
         </>
       }
-      <Footer />
     </main>
   );
 }

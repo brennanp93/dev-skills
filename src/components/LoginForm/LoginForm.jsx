@@ -34,7 +34,7 @@ export default function LoginForm({ setUser }) {
 
   
   return (
-    <MDBContainer>
+    <MDBContainer >
     <form autoComplete="off" onSubmit={handleSubmit}>
       <MDBInput className='mb-4' type='email' id='form1Example1' label='Email address' name="email" value={credentials.email} onChange={handleChange} />
       <MDBInput className='mb-4' type='password' id='form1Example2' label='Password' name="password" value={credentials.password} onChange={handleChange} required />

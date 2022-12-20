@@ -27,17 +27,15 @@ body {
   display: grid;
   grid-template-rows: 50px 1fr 50px;
   background-color: var(--tan-2);
-  /* padding: 2vmin; */
   height: 100vh;
-  /* height: 100%; */
 }
+  /* padding: 2vmin; */
+  /* height: 100%; */
 
-main {
+/* main {
   margin: 0;
   display: grid;
-
-
-}
+} */
 
 .checklist-name {
 
@@ -120,12 +118,12 @@ p.error-message {
 
 .checklist-box {
   display: grid;
-  grid-template-rows: repeat(autofill);
+  /* grid-template-rows: repeat(autofill); */
   /* grid-template-columns: repeat(2, 3fr); */
   border: solid black 2px;
   margin: 10px;
   padding: 1rem;
-  background-color: var(--dark-blue);
+  /* background-color: var(--dark-blue); */
   border-radius: 15px;
 }
 
@@ -136,13 +134,10 @@ p.error-message {
 }
 
 /* footer {
-  display: flex;
-  font-family: 'Chivo Mono', monospace;
-  background-color: var(--dark-blue);
-  margin: 0%;
-  border-top: solid black 2px;
-  padding-left: 1%;
-  padding: 1%;
+position:static;
+left:0;
+bottom:0;
+right:0;
 } */
 
 button {

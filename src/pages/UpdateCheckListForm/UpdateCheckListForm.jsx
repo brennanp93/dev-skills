@@ -1,6 +1,11 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import './UpdateCheckListForm.css';
+import {
+  MDBInput,
+  MDBContainer,
+  MDBBtn
+} from 'mdb-react-ui-kit';
 
 export default function UpdateCheckListForm({ checkList, updateListItem }) {
   const navigate = useNavigate();
@@ -22,11 +27,12 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
   }
 
   return (
+    <MDBContainer>
     <div >
       <div className='checklist-form'>
       <form onSubmit={handleSubmit}>
         <div>
-          <input
+          <MDBInput
             autoComplete="off"
             name="stepTitle"
             value={updatedCheckList.stepTitle}
@@ -37,7 +43,7 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
           />
         </div>
         <div>
-          <input
+          <MDBInput
             autoComplete="off"
             name="description"
             value={updatedCheckList.description}
@@ -48,7 +54,7 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
           />
         </div>
         <div>
-          <input
+          <MDBInput
             autoComplete="off"
             name="terminalCommand"
             value={updatedCheckList.terminalCommand}
@@ -58,11 +64,12 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
             pattern=".{2,}"
           />
         </div>
-        <button type="submit">Update</button>
-        <button onClick={() => navigate('/blanklist')}>Never Mind</button>
+        <MDBBtn color='dark' type="submit">Update</MDBBtn>
+        <MDBBtn color='dark' onClick={() => navigate('/blanklist')}>Never Mind</MDBBtn>
       </form>
       </div>
     </div>
+    </MDBContainer>
   );
 }
 
