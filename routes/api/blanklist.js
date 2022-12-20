@@ -7,7 +7,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 
 // GET /api/blanklist
-router.get('/',  blankListCtrl.index);
+router.get('/', ensureLoggedIn,  blankListCtrl.index);
 
 router.put('/reset', ensureLoggedIn, blankListCtrl.reset)
 
