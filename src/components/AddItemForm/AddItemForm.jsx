@@ -1,4 +1,16 @@
 import { useState } from "react";
+import { MDBInput, 
+  MDBTextArea,
+  MDBCard,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCardBody,
+  MDBCardHeader,
+  MDBCardFooter, 
+  MDBContainer,
+  MDBBtn
+ } from 'mdb-react-ui-kit';
+
 
 
 export default function AddItemForm({ addCheckListItem }) {
@@ -28,44 +40,49 @@ export default function AddItemForm({ addCheckListItem }) {
   }
 
   return (
-    <div className="add-item-form">
+    <MDBContainer background='light'>
+    <div >
       <form onSubmit={handleSubmit}>
         <div>
-          <input
+          <MDBInput
             autoComplete="off"
             name="stepTitle"
             value={addedItem.stepTitle}
             onChange={handleChange}
             placeholder="New To-Do"
+            label="New To-Do"
             required
             pattern=".{2,}"
           />
         </div>
         <div>
-          <input
+          <MDBTextArea
             autoComplete="off"
             name="description"
             value={addedItem.description}
             onChange={handleChange}
             placeholder="Description"
+            label="Description"
             // required
             pattern=".{2,}"
           />
         </div>
         <div>
-          <input
+          <MDBInput
             autoComplete="off"
             name="terminalCommand"
             value={addedItem.terminalCommand}
             onChange={handleChange}
-            placeholder="Terminal Command"
+            label="Terminal Command"
+            // placeholder="Terminal Command"
             // required
             pattern=".{2,}"
           />
         </div>
-        <button type="submit" className="submit-btn">Add To Do</button>
+        <MDBBtn color="dark" type="submit" className="submit-btn">Add To Do</MDBBtn >
       </form>
     </div>
+    </MDBContainer>
   );
 }
 

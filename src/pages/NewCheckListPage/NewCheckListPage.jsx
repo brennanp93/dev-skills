@@ -1,6 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import './NewCheckListPage.css'
-import AddItemForm from "../../components/AddItemForm/AddItemForm"
+import AddItemForm from "../../components/AddItemForm/AddItemForm";
+import {
+  MDBBtn, MDBBtnGroup, MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+} from 'mdb-react-ui-kit';
 
 export default function NewCheckListPage({ resetButton, checkList, addCheckListItem, deleteListItem, updateListItem, updateBoolean }) {
   const navigate = useNavigate();
@@ -19,36 +26,46 @@ export default function NewCheckListPage({ resetButton, checkList, addCheckListI
 
   return (
     <>
-      <div className='add-item-form'>
+      {/* <div className='add-item-form'> */}
         <AddItemForm addCheckListItem={addCheckListItem} />
-      </div>
-      <div className='checklist-box'>
-        <div>
-          <h1>My Checklist</h1>
-          <button onClick={() => resetButton(checkList)} className='reset-btn'>Reset List</button>
-        </div>
-        {checkList.map((step, idx) => (
-          <div className="step-card" key={step._id}
-            style={{ textDecoration: step.completed && 'line-through' }}>
-            <h2><span>({idx + 1})</span>&nbsp;{step.stepTitle}</h2>
-            <hr />
-            <ul>
-              {step.description ?
-                <><li>{step.description}</li> <hr /></>
-                : ''}
-              {step.terminalCommand ?
-                <><li> Enter into Terminal: <span className='terminal-command'> {step.terminalCommand}</span> <hr /></li></>
-                : ''}
-
-            </ul>
-            <button onClick={() => deleteListItem(step._id)}>Delete</button>
-            <button onClick={() => navigate(`/blanklist/${step._id}/update`)}>Edit Note</button>
-            <button onClick={() => handleUpdateBoolean(idx, step._id)} >
-              {step.completed ? 'Undo 🔙' : 'Complete ✅'}
-            </button>
+      {/* </div> */}
+      <MDBContainer breakpoint="sm">
+        <div className='checklist-box'>
+          <div>
+            <h1>My Checklist</h1>
+            <MDBBtn  color='dark' onClick={() => resetButton(checkList)} >
+              Reset List
+            </MDBBtn>
           </div>
-        ))}
-      </div>
+          {checkList.map((step, idx) => (
+            <MDBCard background='secondary' className='text-white mb-3' border='dark' key={step._id} >
+              <MDBCardBody>
+                {/* <div key={step._id}
+                  style={{ textDecoration: step.completed && 'line-through' }}> */}
+                <MDBCardTitle><span>({idx + 1})</span>&nbsp;{step.stepTitle}</MDBCardTitle>
+                <hr />
+                {step.description ?
+                  <>
+                    <MDBCardText>{step.description}</MDBCardText>
+                    <hr />
+                  </>
+                  : ''}
+                {step.terminalCommand ?
+                  <><MDBCardText> Enter into Terminal: <span className='terminal-command'> {step.terminalCommand}</span></MDBCardText> <hr /></>
+                  : ''}
+                <MDBBtnGroup>
+                  <MDBBtn color="light" onClick={() => deleteListItem(step._id)}>Delete</MDBBtn>
+                  <MDBBtn color="light" onClick={() => navigate(`/blanklist/${step._id}/update`)}>Edit Note</MDBBtn>
+                  <MDBBtn color="light" onClick={() => handleUpdateBoolean(idx, step._id)} >
+                    {step.completed ? 'Undo 🔙' : 'Complete ✅'}
+                  </MDBBtn>
+                </MDBBtnGroup>
+                {/* </div> */}
+              </MDBCardBody>
+            </MDBCard>
+          ))}
+        </div>
+      </MDBContainer>
     </>
   )
 }
