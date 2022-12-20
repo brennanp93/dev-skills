@@ -29,7 +29,7 @@ export default function NewCheckListPage({ resetButton, checkList, addCheckListI
     <>
       <AddItemForm addCheckListItem={addCheckListItem} />
 
-      <MDBContainer breakpoint="sm" className="square border border-2 border-dark square rounded-7 ps-5 pe-5" >
+      <MDBContainer breakpoint="sm" className="square border border-2 border-dark square rounded-7 ps-5 pe-5  " >
         <h1>My Checklist</h1>
         <MDBBtn color='dark' className='mb-3' onClick={() => resetButton(checkList)} >
           Reset List

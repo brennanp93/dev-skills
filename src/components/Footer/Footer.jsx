@@ -7,6 +7,6 @@ export default function Footer() {
                 Hello
             </div> */}
         </MDBFooter>
-
     );
+
 }

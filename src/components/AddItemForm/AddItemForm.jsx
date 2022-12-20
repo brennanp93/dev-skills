@@ -40,7 +40,7 @@ export default function AddItemForm({ addCheckListItem }) {
   }
 
   return (
-    <MDBContainer background='light' className="form-outline w-50 square border border-2 border-dark square rounded-7 mb-3 p-3">
+    <MDBContainer background='light' className="form-outline w-50 square border border-2 border-dark square rounded-7 mb-3 p-3 ">
     <div >
       <form onSubmit={handleSubmit}>
         <div>

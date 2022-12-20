@@ -27,7 +27,7 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
   }
 
   return (
-    <MDBContainer>
+    <MDBContainer className="position-absolute top-50 start-50 translate-middle  ">
     <div >
       <div className='checklist-form'>
       <form onSubmit={handleSubmit}>

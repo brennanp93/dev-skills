@@ -12,22 +12,28 @@ export default function Header({ user, setUser }) {
   }
   return (
     <>
-      <MDBNavbar light bgColor='secondary'  >
+      <MDBNavbar light bgColor='secondary mb-3' >
         <MDBContainer fluid >
-          <MDBNavbarBrand href='#'><Link to="/">Dev Skills</Link></MDBNavbarBrand>
-          <MDBNavbarBrand href='#'>
-            <div>
+          <MDBNavbarBrand>
+            <h5>
+              <Link to="/">Dev Skills Checklists</Link>
+            </h5>
+          </MDBNavbarBrand>
+          <MDBNavbarBrand>
+            <h5>
               <span>Welcome, {user.name}</span>
               &nbsp;&nbsp;|&nbsp;&nbsp;
+            </h5>
+            <h5>
               <Link to="/">Home Page</Link>
+            </h5>
+            <h5>
               &nbsp;&nbsp;|&nbsp;&nbsp;
               <Link to="" onClick={handleLogOut}>Log Out</Link>
-            </div>
+            </h5>
           </MDBNavbarBrand>
         </MDBContainer>
       </MDBNavbar>
-
-      <br />
     </>
   );
 

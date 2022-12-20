@@ -92,15 +92,14 @@ export default function App() {
         <>
           <Header user={user} setUser={setUser} />
           <Routes>
-            <Route path="/blanklist" element={
-              <NewCheckListPage
-                checkList={checkList}
-                addCheckListItem={addCheckListItem}
-                deleteListItem={deleteListItem}
-                updateListItem={updateListItem}
-                updateBoolean={updateBoolean}
-                resetButton={resetButton}
-              />
+            <Route path="/blanklist" element={<NewCheckListPage
+              checkList={checkList}
+              addCheckListItem={addCheckListItem}
+              deleteListItem={deleteListItem}
+              updateListItem={updateListItem}
+              updateBoolean={updateBoolean}
+              resetButton={resetButton}
+            />
             }
             />
             <Route path="/" element={<HomePage />} />
@@ -113,7 +112,6 @@ export default function App() {
             <Route path="/blanklist/:id/update" element={<UpdateCheckListForm checkList={checkList} updateListItem={updateListItem} />} />
           </Routes>
           <Footer />
-
         </>
         :
         <>

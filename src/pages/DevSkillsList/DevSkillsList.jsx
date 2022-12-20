@@ -20,17 +20,17 @@ export default function CheckList({ updateBoolean, djangoList, expressList, rese
 
   return (
     <>
-      <h1 className="checklist-name">{checklist}&nbsp;Checklist</h1>
+      <h1 className="checklist-name ">{checklist}&nbsp;Checklist</h1>
       {/* <div className='checklist-box'> */}
-      <MDBContainer breakpoint="sm">
-        <div>
+      <MDBContainer breakpoint="sm ">
+        <MDBTypography>
           {checklist === 'Django' ?
             <a href={`${djangoDocs}`} target='_blank'>Click Here to view the Django Documentation</a>
             :
             <a href={`${expressDocs}`} target='_blank'>Click Here to view the Express Documentation</a>
           }
+        </MDBTypography>
           <MDBBtn color='dark' onClick={() => resetButton(oneStep)} >Reset List</MDBBtn>
-        </div>
 
         {oneStep.map((step, idx) => (
           <MDBCard background='secondary' className='text-white mb-3' border='dark' key={step._id}>
