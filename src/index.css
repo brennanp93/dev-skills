@@ -27,7 +27,7 @@ body {
   display: grid;
   grid-template-rows: 50px 1fr 50px;
   background-color: var(--tan-2);
-  height: 100vh;
+  /* height: 100vh; */
 }
   /* padding: 2vmin; */
   /* height: 100%; */

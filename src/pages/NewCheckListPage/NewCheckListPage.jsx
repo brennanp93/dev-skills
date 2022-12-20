@@ -27,48 +27,44 @@ export default function NewCheckListPage({ resetButton, checkList, addCheckListI
 
   return (
     <>
-      {/* <div className='add-item-form'> */}
       <AddItemForm addCheckListItem={addCheckListItem} />
-      {/* </div> */}
-      <div className='checklist-box'>
-        <MDBContainer breakpoint="sm">
-          <div>
-            <h1>My Checklist</h1>
-            <MDBBtn color='dark' onClick={() => resetButton(checkList)} >
-              Reset List
-            </MDBBtn>
-          </div>
-          {checkList.map((step, idx) => (
-            <MDBCard background='secondary' className='text-white mb-3' border='dark' key={step._id} >
-              <MDBCardBody >
-                <MDBTypography  >
-                  <div key={step._id}
-                    style={{ textDecoration: step.completed && 'line-through' }}>
-                    <MDBCardTitle><span >({idx + 1})</span>&nbsp;{step.stepTitle}</MDBCardTitle>
-                    <hr />
-                    {step.description ?
-                      <>
-                        <MDBCardText>{step.description}</MDBCardText>
-                        <hr />
-                      </>
-                      : ''}
-                    {step.terminalCommand ?
-                      <><MDBCardText> Enter into Terminal: <span className='terminal-command'> {step.terminalCommand}</span></MDBCardText> <hr /></>
-                      : ''}
-                  </div>
-                </MDBTypography>
-                <MDBBtnGroup>
-                  <MDBBtn color="light" onClick={() => deleteListItem(step._id)}>Delete</MDBBtn>
-                  <MDBBtn color="light" onClick={() => navigate(`/blanklist/${step._id}/update`)}>Edit Note</MDBBtn>
-                  <MDBBtn color="light" onClick={() => handleUpdateBoolean(idx, step._id)} >
-                    {step.completed ? 'Undo 🔙' : 'Complete ✅'}
-                  </MDBBtn>
-                </MDBBtnGroup>
-              </MDBCardBody>
-            </MDBCard>
-          ))}
-        </MDBContainer>
-      </div>
+
+      <MDBContainer breakpoint="sm" className="square border border-2 border-dark square rounded-7" >
+        <h1>My Checklist</h1>
+        <MDBBtn color='dark' onClick={() => resetButton(checkList)} >
+          Reset List
+        </MDBBtn>
+        {checkList.map((step, idx) => (
+          <MDBCard background='secondary' className='text-white mb-3 ' border='dark' key={step._id} >
+            <MDBCardBody >
+              <MDBTypography  >
+                <div key={step._id}
+                  style={{ textDecoration: step.completed && 'line-through' }}>
+                  <MDBCardTitle><span >({idx + 1})</span>&nbsp;{step.stepTitle}</MDBCardTitle>
+                  <hr />
+                  {step.description ?
+                    <>
+                      <MDBCardText>{step.description}</MDBCardText>
+                      <hr />
+                    </>
+                    : ''}
+                  {step.terminalCommand ?
+                    <><MDBCardText> Enter into Terminal: <span className='terminal-command'> {step.terminalCommand}</span></MDBCardText> <hr /></>
+                    : ''}
+                </div>
+              </MDBTypography>
+              <MDBBtnGroup>
+                <MDBBtn color="light" onClick={() => deleteListItem(step._id)}>Delete</MDBBtn>
+                <MDBBtn color="light" onClick={() => navigate(`/blanklist/${step._id}/update`)}>Edit Note</MDBBtn>
+                <MDBBtn color="light" onClick={() => handleUpdateBoolean(idx, step._id)} >
+                  {step.completed ? 'Undo 🔙' : 'Complete ✅'}
+                </MDBBtn>
+              </MDBBtnGroup>
+            </MDBCardBody>
+          </MDBCard>
+        ))}
+      </MDBContainer>
+
     </>
   )
 }

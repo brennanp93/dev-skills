@@ -11,7 +11,7 @@ import {
 
 export default function HomePage() {
   return (
-    <MDBContainer >
+    <MDBContainer className="position-absolute top-50 start-50 translate-middle">
       <h1>Pick A Check List</h1>
       <MDBCard>
         <MDBCardBody>

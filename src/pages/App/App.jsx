@@ -90,31 +90,30 @@ export default function App() {
     <main className="App">
       {user ?
         <>
-   
-            <Header user={user} setUser={setUser} />
-            <Routes>
-              <Route path="/blanklist" element={
-                <NewCheckListPage
-                  checkList={checkList}
-                  addCheckListItem={addCheckListItem}
-                  deleteListItem={deleteListItem}
-                  updateListItem={updateListItem}
-                  updateBoolean={updateBoolean}
-                  resetButton={resetButton}
-                />
-              }
-              />
-              <Route path="/" element={<HomePage />} />
-              <Route path="/:checklist" element={<DevSkillsList
+          <Header user={user} setUser={setUser} />
+          <Routes>
+            <Route path="/blanklist" element={
+              <NewCheckListPage
+                checkList={checkList}
+                addCheckListItem={addCheckListItem}
+                deleteListItem={deleteListItem}
+                updateListItem={updateListItem}
                 updateBoolean={updateBoolean}
-                expressList={expressList}
-                djangoList={djangoList}
                 resetButton={resetButton}
-              />} />
-              <Route path="/blanklist/:id/update" element={<UpdateCheckListForm checkList={checkList} updateListItem={updateListItem} />} />
-            </Routes>
-            <Footer />
-  
+              />
+            }
+            />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/:checklist" element={<DevSkillsList
+              updateBoolean={updateBoolean}
+              expressList={expressList}
+              djangoList={djangoList}
+              resetButton={resetButton}
+            />} />
+            <Route path="/blanklist/:id/update" element={<UpdateCheckListForm checkList={checkList} updateListItem={updateListItem} />} />
+          </Routes>
+          <Footer />
+
         </>
         :
         <>
