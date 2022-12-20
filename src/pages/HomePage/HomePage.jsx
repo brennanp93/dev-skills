@@ -4,12 +4,15 @@ import {
   MDBCardBody,
   MDBContainer,
   MDBCardTitle,
-  MDBCardSubTitle,
-  MDBCardText,
   MDBCardLink
 } from 'mdb-react-ui-kit';
 
-export default function HomePage() {
+
+export default function HomePage({checkLis, setCheckList}) {
+// const [incomingItems, setIncomingItems] = useState();
+
+
+
   return (
     <MDBContainer className="position-absolute top-50 start-50 translate-middle">
       <h1>Pick A Check List</h1>
