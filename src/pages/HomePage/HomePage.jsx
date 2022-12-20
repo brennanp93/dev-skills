@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <MDBContainer className="position-absolute top-50 start-50 translate-middle">
       <h1>Pick A Check List</h1>
-      <MDBCard>
+      <MDBCard className="shadow-5-strong" >
         <MDBCardBody>
           <MDBCardTitle>
             <h2>Express</h2>
@@ -24,7 +24,7 @@ export default function HomePage() {
         </MDBCardBody>
       </MDBCard>
       <MDBCard>
-        <MDBCardBody>
+        <MDBCardBody className="shadow-5-strong">
           <MDBCardTitle>
             <h2>Django</h2>
           </MDBCardTitle>
@@ -33,12 +33,11 @@ export default function HomePage() {
           </MDBCardLink>
         </MDBCardBody>
       </MDBCard>
-      <MDBCard>
-        <MDBCardBody>
+      <MDBCard >
+        <MDBCardBody className="shadow-5-strong">
           <MDBCardTitle>
             <h2>Build Your Own List</h2>
           </MDBCardTitle>
-          <MDBCardText></MDBCardText>
           <MDBCardLink>
             <Link to="/BlankList" >Let me build my own list</Link>
           </MDBCardLink>

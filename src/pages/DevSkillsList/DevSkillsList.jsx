@@ -52,10 +52,12 @@ export default function CheckList({ updateBoolean, djangoList, expressList, rese
                 {step.otherStepSpecificData ?
                   <><MDBCardText>{step.otherStepSpecificData}</MDBCardText> <hr /></>
                   : ''
-                  }
-                <button onClick={() => handleUpdateBoolean(idx, step._id)} >
-                  {step.completed ? 'Undo 🔙' : 'Click to Mark as Complete ✅'}
-                </button>
+                }
+                <MDBBtnGroup>
+                  <MDBBtn  color='light' onClick={() => handleUpdateBoolean(idx, step._id)} >
+                    {step.completed ? 'Undo 🔙' : 'Click to Mark as Complete ✅'}
+                  </MDBBtn>
+                </MDBBtnGroup>
               </div>
             </MDBCardBody>
           </MDBCard>

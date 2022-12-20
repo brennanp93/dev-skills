@@ -40,7 +40,7 @@ export default function AddItemForm({ addCheckListItem }) {
   }
 
   return (
-    <MDBContainer background='light'>
+    <MDBContainer background='light' className="form-outline w-50 square border border-2 border-dark square rounded-7 mb-3 p-3">
     <div >
       <form onSubmit={handleSubmit}>
         <div>
@@ -68,7 +68,7 @@ export default function AddItemForm({ addCheckListItem }) {
           />
         </div>
         <div>
-          <MDBInput
+          <MDBInput className="col-xs-4"
             autoComplete="off"
             name="terminalCommand"
             value={addedItem.terminalCommand}
@@ -79,7 +79,7 @@ export default function AddItemForm({ addCheckListItem }) {
             pattern=".{2,}"
           />
         </div>
-        <MDBBtn color="dark" type="submit" className="submit-btn">Add To Do</MDBBtn >
+        <MDBBtn color="dark" type="submit" className="mt-3">Add To Do</MDBBtn >
       </form>
     </div>
     </MDBContainer>

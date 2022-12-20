@@ -29,13 +29,13 @@ export default function NewCheckListPage({ resetButton, checkList, addCheckListI
     <>
       <AddItemForm addCheckListItem={addCheckListItem} />
 
-      <MDBContainer breakpoint="sm" className="square border border-2 border-dark square rounded-7" >
+      <MDBContainer breakpoint="sm" className="square border border-2 border-dark square rounded-7 ps-5 pe-5" >
         <h1>My Checklist</h1>
-        <MDBBtn color='dark' onClick={() => resetButton(checkList)} >
+        <MDBBtn color='dark' className='mb-3' onClick={() => resetButton(checkList)} >
           Reset List
         </MDBBtn>
         {checkList.map((step, idx) => (
-          <MDBCard background='secondary' className='text-white mb-3 ' border='dark' key={step._id} >
+          <MDBCard background='secondary' className='text-white mb-3' border='dark' key={step._id} >
             <MDBCardBody >
               <MDBTypography  >
                 <div key={step._id}
@@ -53,8 +53,8 @@ export default function NewCheckListPage({ resetButton, checkList, addCheckListI
                     : ''}
                 </div>
               </MDBTypography>
-              <MDBBtnGroup>
-                <MDBBtn color="light" onClick={() => deleteListItem(step._id)}>Delete</MDBBtn>
+              <MDBBtnGroup className='text-dark'>
+                <MDBBtn  color="light" onClick={() => deleteListItem(step._id)}>Delete</MDBBtn>
                 <MDBBtn color="light" onClick={() => navigate(`/blanklist/${step._id}/update`)}>Edit Note</MDBBtn>
                 <MDBBtn color="light" onClick={() => handleUpdateBoolean(idx, step._id)} >
                   {step.completed ? 'Undo 🔙' : 'Complete ✅'}
