@@ -6,9 +6,11 @@ import {
   MDBCardTitle,
   MDBCardLink
 } from 'mdb-react-ui-kit';
+import { useEffect } from "react";
 
 
-export default function HomePage({checkLis, setCheckList}) {
+
+export default function HomePage() {
 // const [incomingItems, setIncomingItems] = useState();
 
 
