@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+import {
+  MDBInput,
+  MDBBtn,
+  MDBContainer
+} from 'mdb-react-ui-kit';
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -27,18 +32,28 @@ export default function LoginForm({ setUser }) {
     }
   }
 
+  
   return (
-    <div>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
-        </form>
-      </div>
-      <p className="error-message">&nbsp;{error}</p>
-    </div>
+    <MDBContainer>
+    <form autoComplete="off" onSubmit={handleSubmit}>
+      <MDBInput className='mb-4' type='email' id='form1Example1' label='Email address' name="email" value={credentials.email} onChange={handleChange} />
+      <MDBInput className='mb-4' type='password' id='form1Example2' label='Password' name="password" value={credentials.password} onChange={handleChange} required />
+      <MDBBtn type='submit' block>
+        Sign in
+      </MDBBtn>
+    </form>
+    </MDBContainer>
   );
 }
+    // <div>
+    //   <div className="form-container">
+    //     <form autoComplete="off" onSubmit={handleSubmit}>
+    //       <label>Email</label>
+    //       <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
+    //       <label>Password</label>
+    //       <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+    //       <button type="submit">LOG IN</button>
+    //     </form>
+    //   </div>
+    //   <p className="error-message">&nbsp;{error}</p>
+    // </div>

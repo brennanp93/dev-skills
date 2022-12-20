@@ -135,15 +135,15 @@ p.error-message {
   padding: 1rem;
 }
 
-footer {
+/* footer {
   display: flex;
   font-family: 'Chivo Mono', monospace;
   background-color: var(--dark-blue);
   margin: 0%;
   border-top: solid black 2px;
-  /* padding-left: 1%; */
+  padding-left: 1%;
   padding: 1%;
-}
+} */
 
 button {
   margin: 5px;
