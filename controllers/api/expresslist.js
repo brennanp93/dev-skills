@@ -1,7 +1,5 @@
 const ExpressList = require('../../models/expresslist');
 
-
-
 module.exports = {
   index,
   updateBool,
@@ -10,7 +8,6 @@ module.exports = {
 
 async function reset(req, res) {
   const resetList = await ExpressList.updateMany({ completed: true }, { completed: false });
-  console.log(resetList)
   res.json(resetList);
 }
 

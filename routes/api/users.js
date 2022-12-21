@@ -11,9 +11,3 @@ router.post('/', usersCtrl.create);
 router.post('/login', usersCtrl.login);
 
 module.exports = router;
-
-
-
-/*------ Garbage Bin -------*/
-// // GET /api/users/check-token
-// router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);

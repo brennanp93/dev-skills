@@ -8,7 +8,7 @@ import HomePage from '../HomePage/HomePage';
 import DevSkillsList from '../DevSkillsList/DevSkillsList';
 import Header from '../../components/Header/Header';
 import Footer from "../../components/Footer/Footer";
-import UpdateCheckListForm from '../UpdateCheckListForm/UpdateCheckListForm';
+import UpdateCheckListForm from '../../components/UpdateCheckListForm/UpdateCheckListForm';
 import NewCheckListPage from '../NewCheckListPage/NewCheckListPage';
 /* API's */
 import * as checkListAPI from '../../utilities/blanklist-api';
@@ -72,18 +72,6 @@ export default function App() {
     setExpressCheckList(newlyResetList);
   }
 
-  // async function resetButton(entireCheckList) {
-  //   await checkListAPI.resetButton(entireCheckList);
-  //   await djangoListAPI.resetButton(entireCheckList);
-  //   await expressListAPI.resetButton(entireCheckList);
-  //   // const newlyResetList = await checkListAPI.getAll();
-  //   const resetDjangoList = await djangoListAPI.getAll();
-  //   const resetExpressList = await expressListAPI.getAll();
-  //   // setCheckList(newlyResetList);
-  //   setDjangoCheckList(resetDjangoList);
-  //   setExpressCheckList(resetExpressList);
-  // }
-
   useEffect(function () {
     async function getAllItems() {
       if (user) {
@@ -93,7 +81,7 @@ export default function App() {
         setCheckList(entireCheckList);
         setDjangoCheckList(allDjangoSkills);
         setExpressCheckList(allExpressSkills);
-      }
+      };
     };
     getAllItems();
   }, [user]);
@@ -114,15 +102,19 @@ export default function App() {
             />
             }
             />
-            <Route path="/" element={<HomePage setCheckList={setCheckList} user={user} />} />
+            <Route path="/" element={<HomePage
+              setCheckList={setCheckList}
+              user={user} />} />
             <Route path="/:checklist" element={<DevSkillsList
-              updateBoolean={updateBoolean}
               expressList={expressList}
               djangoList={djangoList}
+              updateBoolean={updateBoolean}
               resetDjangoList={resetDjangoList}
               resetExpressList={resetExpressList}
             />} />
-            <Route path="/blanklist/:id/update" element={<UpdateCheckListForm checkList={checkList} updateListItem={updateListItem} />} />
+            <Route path="/blanklist/:id/update" element={<UpdateCheckListForm
+              checkList={checkList}
+              updateListItem={updateListItem} />} />
           </Routes>
           <Footer />
         </>
@@ -134,14 +126,3 @@ export default function App() {
     </main>
   );
 };
-
-
-
-/*------ Garbage Bin -------*/
-//  <Route path="/blank" element={<BlankList newLists={newLists} />} /> *
-
-// {/* <Routes> */ }
-// {/* Route components in here */ }
-// {/* <Route path="/orders/new" element={<NewOrderPage />} /> */ }
-// {/* <Route path="/orders" element={<OrderHistoryPage />} /> */ }
-// {/* </Routes> */ }

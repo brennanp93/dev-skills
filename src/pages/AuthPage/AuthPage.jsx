@@ -2,7 +2,6 @@ import { useState } from 'react';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import {
-  MDBInput,
   MDBBtn,
   MDBContainer
 } from 'mdb-react-ui-kit';

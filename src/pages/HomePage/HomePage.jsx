@@ -6,15 +6,8 @@ import {
   MDBCardTitle,
   MDBCardLink
 } from 'mdb-react-ui-kit';
-import { useEffect } from "react";
-
-
 
 export default function HomePage() {
-// const [incomingItems, setIncomingItems] = useState();
-
-
-
   return (
     <MDBContainer className="position-absolute top-50 start-50 translate-middle">
       <h1>Pick A Check List</h1>
@@ -49,6 +42,5 @@ export default function HomePage() {
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>
-
   );
-}
+};

@@ -11,10 +11,7 @@ module.exports = {
 };
 
 async function reset(req, res) {
-  let id = req.body;
   const resetList = await BlankList.updateMany({ completed: true }, { completed: false });
-  console.log(resetList)
-  // const resetList = await BlankList.updateMany({ completed: true }, { completed: false });
   res.json(resetList);
 }
 

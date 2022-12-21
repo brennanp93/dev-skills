@@ -7,9 +7,7 @@ module.exports = {
 };
 
 async function reset(req, res) {
-  console.log(req.body)
   const resetList = await DjangoList.updateMany({ completed: true }, { completed: false });
-  console.log(resetList)
   res.json(resetList);
 }
 

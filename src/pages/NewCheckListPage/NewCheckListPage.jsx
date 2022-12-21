@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import './NewCheckListPage.css'
+
 import AddItemForm from "../../components/AddItemForm/AddItemForm";
 import {
   MDBBtn, MDBBtnGroup, MDBContainer,
@@ -10,19 +10,13 @@ import {
   MDBTypography
 } from 'mdb-react-ui-kit';
 
-export default function NewCheckListPage({ resetButton, resetCheckList, checkList, addCheckListItem, deleteListItem, updateListItem, updateBoolean }) {
+export default function NewCheckListPage({ resetCheckList, checkList, addCheckListItem, deleteListItem, updateBoolean }) {
   const navigate = useNavigate();
-  // console.log(checkList)
 
   function handleUpdateBoolean(idx, id) {
     checkList[idx].completed ? checkList[idx].completed = false : checkList[idx].completed = true;
     updateBoolean(checkList[idx], id)
-    // console.log(checkList[idx], id)
-  }
-
-  //   resetButton(checkList)
-  //   // console.log(checkList)
-  // }
+  };
 
   return (
     <>
@@ -53,7 +47,7 @@ export default function NewCheckListPage({ resetButton, resetCheckList, checkLis
                 </div>
               </MDBTypography>
               <MDBBtnGroup className='text-dark'>
-                <MDBBtn  color="light" onClick={() => deleteListItem(step._id)}>Delete</MDBBtn>
+                <MDBBtn color="light" onClick={() => deleteListItem(step._id)}>Delete</MDBBtn>
                 <MDBBtn color="light" onClick={() => navigate(`/blanklist/${step._id}/update`)}>Edit Note</MDBBtn>
                 <MDBBtn color="light" onClick={() => handleUpdateBoolean(idx, step._id)} >
                   {step.completed ? 'Undo 🔙' : 'Complete ✅'}
@@ -61,9 +55,8 @@ export default function NewCheckListPage({ resetButton, resetCheckList, checkLis
               </MDBBtnGroup>
             </MDBCardBody>
           </MDBCard>
-        ))}
+        ))};
       </MDBContainer>
-
     </>
-  )
-}
+  );
+};

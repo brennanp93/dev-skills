@@ -8,7 +8,7 @@ import {
   MDBTypography
 } from 'mdb-react-ui-kit';
 
-export default function CheckList({ updateBoolean, djangoList, expressList, resetButton, resetDjangoList, resetExpressList }) {
+export default function CheckList({ updateBoolean, djangoList, expressList, resetDjangoList, resetExpressList }) {
   let { checklist } = useParams();
   let oneStep = checklist === 'Django' ? djangoList : expressList;
   let djangoDocs = 'https://docs.djangoproject.com/en/4.1/'
@@ -16,13 +16,12 @@ export default function CheckList({ updateBoolean, djangoList, expressList, rese
 
   function handleUpdateBoolean(idx, id) {
     oneStep[idx].completed ? oneStep[idx].completed = false : oneStep[idx].completed = true;
-    updateBoolean(oneStep[idx], id)
-  }
+    updateBoolean(oneStep[idx], id);
+  };
 
   return (
     <>
       <h1 className="checklist-name ">{checklist}&nbsp;Checklist</h1>
-      {/* <div className='checklist-box'> */}
       <MDBContainer breakpoint="sm" className="square border border-2 border-dark square rounded-7 ps-5 pe-5" >
         <MDBTypography >
           {checklist === 'Django' ?
@@ -37,14 +36,12 @@ export default function CheckList({ updateBoolean, djangoList, expressList, rese
           <MDBBtn color='dark' onClick={() => resetExpressList(oneStep)} >Reset List</MDBBtn>}
         {oneStep.map((step, idx) => (
           <>
-            {/* <MDBBtn color='dark' onClick={() => resetButton(oneStep)} >Reset List</MDBBtn> */}
             <MDBCard background='secondary' className='text-white mb-3 ' border='dark' key={step._id}>
               <MDBCardBody>
                 <div key={step._id}
                   style={{ textDecoration: step.completed && 'line-through' }}>
                   <MDBCardTitle><span>({idx + 1})</span>&nbsp;{step.stepTitle}</MDBCardTitle>
                   <hr />
-
                   {step.description ?
                     <><MDBCardText>{step.description}</MDBCardText><hr /></>
                     : ''
@@ -66,9 +63,8 @@ export default function CheckList({ updateBoolean, djangoList, expressList, rese
                 </div>
               </MDBCardBody>
             </MDBCard></>
-        ))}
+        ))};
       </MDBContainer>
-      {/* </div> */}
     </>
-  )
-}
+  );
+};
