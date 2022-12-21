@@ -10,7 +10,7 @@ import {
   MDBTypography
 } from 'mdb-react-ui-kit';
 
-export default function NewCheckListPage({ resetButton, checkList, addCheckListItem, deleteListItem, updateListItem, updateBoolean }) {
+export default function NewCheckListPage({ resetButton, resetCheckList, checkList, addCheckListItem, deleteListItem, updateListItem, updateBoolean }) {
   const navigate = useNavigate();
   // console.log(checkList)
 
@@ -19,9 +19,6 @@ export default function NewCheckListPage({ resetButton, checkList, addCheckListI
     updateBoolean(checkList[idx], id)
     // console.log(checkList[idx], id)
   }
-
-  // async function resetButton(checkList) {
-  //      await checkListAPI.resetButton(entireCheckList);
 
   //   resetButton(checkList)
   //   // console.log(checkList)
@@ -33,7 +30,7 @@ export default function NewCheckListPage({ resetButton, checkList, addCheckListI
 
       <MDBContainer breakpoint="sm" className="square border border-2 border-dark square rounded-7 ps-5 pe-5  " >
         <h1>My Checklist</h1>
-        <MDBBtn color='dark' className='mb-3' onClick={() => resetButton(checkList)} >
+        <MDBBtn color='dark' className='mb-3' onClick={() => resetCheckList(checkList)} >
           Reset List
         </MDBBtn>
         {checkList.map((step, idx) => (

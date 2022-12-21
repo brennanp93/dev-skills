@@ -56,17 +56,33 @@ export default function App() {
     setExpressCheckList(allExpressSkills);
   };
 
-  async function resetButton(entireCheckList) {
-    await checkListAPI.resetButton(entireCheckList);
-    await djangoListAPI.resetButton(entireCheckList);
-    await expressListAPI.resetButton(entireCheckList);
-    const newlyResetList = await checkListAPI.getAll();
-    const resetDjangoList = await djangoListAPI.getAll();
-    const resetExpressList = await expressListAPI.getAll();
-    setCheckList(newlyResetList);
-    setDjangoCheckList(resetDjangoList);
-    setExpressCheckList(resetExpressList);
-  }
+async function resetCheckList(checkList){
+  await checkListAPI.resetButton(checkList);
+  const newlyResetList = await checkListAPI.getAll();
+  setCheckList(newlyResetList);
+}
+async function resetDjangoList(djangoList){
+  await djangoListAPI.resetButton(djangoList);
+  const newlyResetList = await djangoListAPI.getAll();
+  setDjangoCheckList(newlyResetList);
+}
+async function resetExpressList(expressList){
+  await expressListAPI.resetButton(expressList);
+  const newlyResetList = await expressListAPI.getAll();
+  setExpressCheckList(newlyResetList);
+}
+
+  // async function resetButton(entireCheckList) {
+  //   await checkListAPI.resetButton(entireCheckList);
+  //   await djangoListAPI.resetButton(entireCheckList);
+  //   await expressListAPI.resetButton(entireCheckList);
+  //   // const newlyResetList = await checkListAPI.getAll();
+  //   const resetDjangoList = await djangoListAPI.getAll();
+  //   const resetExpressList = await expressListAPI.getAll();
+  //   // setCheckList(newlyResetList);
+  //   setDjangoCheckList(resetDjangoList);
+  //   setExpressCheckList(resetExpressList);
+  // }
 
   useEffect(function () {
     async function getAllItems() {
@@ -94,7 +110,8 @@ export default function App() {
               deleteListItem={deleteListItem}
               updateListItem={updateListItem}
               updateBoolean={updateBoolean}
-              resetButton={resetButton}
+              // resetButton={resetButton}
+              resetCheckList={resetCheckList}
             />
             }
             />
@@ -103,7 +120,9 @@ export default function App() {
               updateBoolean={updateBoolean}
               expressList={expressList}
               djangoList={djangoList}
-              resetButton={resetButton}
+              // resetButton={resetButton}
+              resetDjangoList={resetDjangoList}
+              resetExpressList={resetExpressList}
             />} />
             <Route path="/blanklist/:id/update" element={<UpdateCheckListForm checkList={checkList} updateListItem={updateListItem} />} />
           </Routes>
