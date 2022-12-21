@@ -41,10 +41,10 @@ export default function HomePage() {
       <MDBCard >
         <MDBCardBody className="shadow-5-strong">
           <MDBCardTitle>
-            <h2>Build Your Own List</h2>
+            <h2>My Checklist</h2>
           </MDBCardTitle>
           <MDBCardLink>
-            <Link to="/BlankList" >Let me build my own list</Link>
+            <Link to="/BlankList" >Take me to my checklist</Link>
           </MDBCardLink>
         </MDBCardBody>
       </MDBCard>
