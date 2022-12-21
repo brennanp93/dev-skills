@@ -76,12 +76,14 @@ export default function App() {
 
   useEffect(function () {
     async function getAllItems() {
-      const entireCheckList = await checkListAPI.getAll();
-      const allDjangoSkills = await djangoListAPI.getAll();
-      const allExpressSkills = await expressListAPI.getAll();
-      setCheckList(entireCheckList)
-      setDjangoCheckList(allDjangoSkills);
-      setExpressCheckList(allExpressSkills);
+      if (user) {
+        const entireCheckList = await checkListAPI.getAll();
+        const allDjangoSkills = await djangoListAPI.getAll();
+        const allExpressSkills = await expressListAPI.getAll();
+        setCheckList(entireCheckList)
+        setDjangoCheckList(allDjangoSkills);
+        setExpressCheckList(allExpressSkills);
+      }
     };
     getAllItems();
   }, [user])
@@ -102,7 +104,7 @@ export default function App() {
             />
             }
             />
-            <Route path="/" element={<HomePage setCheckList={setCheckList} user={user}/>} />
+            <Route path="/" element={<HomePage setCheckList={setCheckList} user={user} />} />
             <Route path="/:checklist" element={<DevSkillsList
               updateBoolean={updateBoolean}
               expressList={expressList}
