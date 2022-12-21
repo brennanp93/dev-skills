@@ -36,7 +36,7 @@ export default class SignUpForm extends Component {
       // An error occurred
       // Probably due to a duplicate email
       this.setState({ error: 'Sign Up Failed - Try Again' });
-    }
+    };
   };
 
   render() {
@@ -44,18 +44,19 @@ export default class SignUpForm extends Component {
     return (
       <MDBContainer>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <MDBInput className='mb-4' type='name'  label='Name' name='name' value={this.state.name} onChange={this.handleChange} required />
-          <MDBInput className='mb-4' type='email'  label='Email address' name='email' value={this.state.email} onChange={this.handleChange} required />
-          <MDBInput className='mb-4' type='password'  label='Password' name='password' value={this.state.password} onChange={this.handleChange} required />
-          <MDBInput className='mb-4' type='password'  label='Confirm Password' name='confirm' value={this.state.confirm} onChange={this.handleChange} required />
+          <MDBInput className='mb-4' type='name' label='Name' name='name' value={this.state.name} onChange={this.handleChange} required />
+          <MDBInput className='mb-4' type='email' label='Email address' name='email' value={this.state.email} onChange={this.handleChange} required />
+          <MDBInput className='mb-4' type='password' label='Password' name='password' value={this.state.password} onChange={this.handleChange} required />
+          <MDBInput className='mb-4' type='password' label='Confirm Password' name='confirm' value={this.state.confirm} onChange={this.handleChange} required />
           <MDBBtn type='submit' block>
             Sign in
           </MDBBtn>
         </form>
+        <p className="error-message">&nbsp;{this.state.error}</p>
       </MDBContainer>
     );
-  }
-}
+  };
+};
       // <div>
       //   <div className="form-container">
       //     <form autoComplete="off" onSubmit={this.handleSubmit}>

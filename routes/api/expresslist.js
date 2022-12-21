@@ -7,7 +7,7 @@ const expressListCtrl = require('../../controllers/api/expresslist')
 // GET /api/blanklist
 router.get('/', expressListCtrl.index);
 
-router.put('/reset', expressListCtrl.reset)
+router.put('/reset/express', expressListCtrl.reset)
 
 // Update Boolean Only
 router.put('/:id', expressListCtrl.updateBool);

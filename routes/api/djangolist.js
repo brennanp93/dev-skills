@@ -5,7 +5,7 @@ const djangoListCtrl = require('../../controllers/api/djangolist')
 // GET /api/blanklist
 router.get('/', djangoListCtrl.index);
 
-router.put('/reset', djangoListCtrl.reset)
+router.put('/reset/django', djangoListCtrl.reset)
 
 // Update Boolean Only
 router.put('/:id', djangoListCtrl.updateBool);

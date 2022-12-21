@@ -12,7 +12,7 @@ export async function updateBoolean(booleanData, id) {
 }
 
 export async function resetButton(entireCheckList) {
-  return sendRequest(`${BASE_URL}/reset`, 'PUT', entireCheckList);
+  return sendRequest(`${BASE_URL}/reset/django`, 'PUT', entireCheckList);
 }
 // export async function updateListItem(booleanData, id) {
 //   return sendRequest(`${BASE_URL}/${id}/update`, 'PUT', booleanData);

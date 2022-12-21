@@ -5,6 +5,7 @@ import {
   MDBNavbar,
   MDBNavbarBrand
 } from 'mdb-react-ui-kit';
+
 export default function Header({ user, setUser }) {
   function handleLogOut() {
     userService.logOut();
@@ -15,7 +16,7 @@ export default function Header({ user, setUser }) {
       <MDBNavbar light bgColor='secondary mb-3' >
         <MDBContainer fluid >
           <MDBNavbarBrand  >
-            <h5  >
+            <h5>
               <Link className="text-dark" to="/">Dev Skills Checklists</Link>
             </h5>
           </MDBNavbarBrand>
@@ -26,9 +27,9 @@ export default function Header({ user, setUser }) {
             </h5>
             <h5>
               <Link className="text-dark" to="/">Home Page</Link>
+              &nbsp;&nbsp;|&nbsp;&nbsp;
             </h5>
             <h5>
-              &nbsp;&nbsp;|&nbsp;&nbsp;
               <Link className="text-dark" to="" onClick={handleLogOut}>Log Out</Link>
             </h5>
           </MDBNavbarBrand>
@@ -36,8 +37,7 @@ export default function Header({ user, setUser }) {
       </MDBNavbar>
     </>
   );
-
-}
+};
 
 
 

@@ -9,7 +9,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 // GET /api/blanklist
 router.get('/', ensureLoggedIn,  blankListCtrl.index);
 
-router.put('/reset', ensureLoggedIn, blankListCtrl.reset)
+router.put('/reset/blanklist', ensureLoggedIn, blankListCtrl.reset)
 
 // Update Boolean Only
 router.put('/:id', ensureLoggedIn, blankListCtrl.updateBool);

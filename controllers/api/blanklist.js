@@ -1,56 +1,59 @@
 const BlankList = require('../../models/blanklist');
 
 module.exports = {
-    create,
-    index,
-    delete: deleteItem,
-    update,
-    updateBool,
-    reset
+  create,
+  index,
+  delete: deleteItem,
+  update,
+  updateBool,
+  reset
 
 };
 
 async function reset(req, res) {
-    const resetList = await BlankList.updateMany({ completed: true }, { completed: false });
-    res.json(resetList);
+  let id = req.body;
+  const resetList = await BlankList.updateMany({ completed: true }, { completed: false });
+  console.log(resetList)
+  // const resetList = await BlankList.updateMany({ completed: true }, { completed: false });
+  res.json(resetList);
 }
 
 async function index(req, res) {
-    const entireCheckList = await BlankList.find({ user: req.user._id });
-    res.json(entireCheckList);
+  const entireCheckList = await BlankList.find({ user: req.user._id });
+  res.json(entireCheckList);
 }
 
 async function update(req, res, next) {
-    try {
-        await BlankList.findByIdAndUpdate({ _id: req.params.id }, req.body);
-        const listItem = await BlankList.find({ user: req.user._id });
-        res.json(listItem);
-    } catch (err) {
-        return next(err);
-    }
+  try {
+    await BlankList.findByIdAndUpdate({ _id: req.params.id }, req.body);
+    const listItem = await BlankList.find({ user: req.user._id });
+    res.json(listItem);
+  } catch (err) {
+    return next(err);
+  }
 }
 
 async function updateBool(req, res) {
-    let id = req.body._id;
-    const filter = { _id: id };
-    const update = { completed: req.body.completed };
-    const updatedItem = await BlankList.findOneAndUpdate(filter, update);
-    res.json(updatedItem);
+  let id = req.body._id;
+  const filter = { _id: id };
+  const update = { completed: req.body.completed };
+  const updatedItem = await BlankList.findOneAndUpdate(filter, update);
+  res.json(updatedItem);
 }
 
 async function create(req, res) {
-    req.body.user = req.user._id;
-    try {
-        const listItem = await BlankList.create(req.body);
-        res.json(listItem);
-    } catch {
-        res.status(404);
-    }
+  req.body.user = req.user._id;
+  try {
+    const listItem = await BlankList.create(req.body);
+    res.json(listItem);
+  } catch {
+    res.status(404);
+  }
 }
 
 async function deleteItem(req, res) {
-    req.body.user = req.user._id;
-    const listItem = await BlankList.findOneAndDelete(req.params.id);
-    res.json(listItem);
+  req.body.user = req.user._id;
+  const listItem = await BlankList.findOneAndDelete(req.params.id);
+  res.json(listItem);
 }
 

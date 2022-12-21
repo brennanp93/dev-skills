@@ -3,25 +3,25 @@ const DevSkill = require('../../models/devskills');
 
 
 module.exports = {
-    index,
-    updateBool,
-    getOne
+  index,
+  updateBool,
+  getOne
 };
 
 async function index(req, res) {
-    const allDevSkills = await DevSkill.find({});
-    res.json(allDevSkills)
+  const allDevSkills = await DevSkill.find({});
+  res.json(allDevSkills)
 }
 
 async function getOne(req, res) {
-    const updatedBool = await DevSkill.findById(req.body._id)
-    res.json(updatedBool)
+  const updatedBool = await DevSkill.findById(req.body._id)
+  res.json(updatedBool)
 }
 
 async function updateBool(req, res) {
-    let id = req.body._id;
-    const filter = { _id: id }
-    const update = { completed: req.body.completed }
-    const updatedItem = await DevSkill.findOneAndUpdate({ _id: id }, update)
-    res.json(updatedItem)
+  let id = req.body._id;
+  const filter = { _id: id }
+  const update = { completed: req.body.completed }
+  const updatedItem = await DevSkill.findOneAndUpdate({ _id: id }, update)
+  res.json(updatedItem)
 }

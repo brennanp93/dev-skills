@@ -29,22 +29,24 @@ export default function LoginForm({ setUser }) {
       setUser(user);
     } catch {
       setError('Log In Failed - Try Again');
-    }
-  }
+    };
+  };
 
-  
   return (
     <MDBContainer >
-    <form autoComplete="off" onSubmit={handleSubmit}>
-      <MDBInput className='mb-4' type='email' id='form1Example1' label='Email address' name="email" value={credentials.email} onChange={handleChange} />
-      <MDBInput className='mb-4' type='password' id='form1Example2' label='Password' name="password" value={credentials.password} onChange={handleChange} required />
-      <MDBBtn type='submit' block>
-        Sign in
-      </MDBBtn>
-    </form>
+      <form autoComplete="off" onSubmit={handleSubmit}>
+        <MDBInput className='mb-4' type='email' id='form1Example1' label='Email address' name="email" value={credentials.email} onChange={handleChange} />
+        <MDBInput className='mb-4' type='password' id='form1Example2' label='Password' name="password" value={credentials.password} onChange={handleChange} required />
+        <MDBBtn type='submit' block>
+          Sign in
+        </MDBBtn>
+      </form>
+      <p className="error-message">&nbsp;{error}</p>
     </MDBContainer>
   );
-}
+};
+
+
     // <div>
     //   <div className="form-container">
     //     <form autoComplete="off" onSubmit={handleSubmit}>

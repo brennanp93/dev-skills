@@ -5,21 +5,15 @@ import './App.css';
 /* Components */
 import AuthPage from '../AuthPage/AuthPage';
 import HomePage from '../HomePage/HomePage';
-import DevSkillsList from '../DevSkillsList/DevSkillsList'
+import DevSkillsList from '../DevSkillsList/DevSkillsList';
 import Header from '../../components/Header/Header';
-import Footer from "../../components/Footer/Footer"
-import NavBar from '../../components/Header/Header';
+import Footer from "../../components/Footer/Footer";
 import UpdateCheckListForm from '../UpdateCheckListForm/UpdateCheckListForm';
 import NewCheckListPage from '../NewCheckListPage/NewCheckListPage';
 /* API's */
-import * as checkListAPI from '../../utilities/blanklist-api'
-import * as djangoListAPI from '../../utilities/djangolist-api'
-import * as expressListAPI from '../../utilities/expresslist-api'
-import {
-  MDBInput,
-  MDBBtn,
-  MDBContainer
-} from 'mdb-react-ui-kit';
+import * as checkListAPI from '../../utilities/blanklist-api';
+import * as djangoListAPI from '../../utilities/djangolist-api';
+import * as expressListAPI from '../../utilities/expresslist-api';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -31,23 +25,23 @@ export default function App() {
   // Adds an item to the checklist
   async function addCheckListItem(checkListData) {
     const newCheckListItem = await checkListAPI.create(checkListData);
-    setCheckList([...checkList, newCheckListItem])
-  }
+    setCheckList([...checkList, newCheckListItem]);
+  };
 
   //Deletes an item from checklist with delete button
   async function deleteListItem(id) {
     await checkListAPI.deleteListItem(id);
     const afterDeleteList = checkList.filter(note => note._id !== id);
     setCheckList(afterDeleteList);
-  }
+  };
 
   //Updates the specific item
   async function updateListItem(updateCheckListFormData, id) {
     await checkListAPI.updateListItem(updateCheckListFormData, id);
     const checkList = await checkListAPI.getAll();
-    setCheckList(checkList)
-    navigate('/blanklist')
-  }
+    setCheckList(checkList);
+    navigate('/blanklist');
+  };
 
   // Sets the boolean value in the DB so that it renders buttom dynamically. 
   async function updateBoolean(booleanData, id) {
@@ -57,19 +51,19 @@ export default function App() {
     const checkListBoolean = await checkListAPI.getAll();
     const allDjangoSkills = await djangoListAPI.getAll();
     const allExpressSkills = await expressListAPI.getAll();
-    setCheckList(checkListBoolean)
+    setCheckList(checkListBoolean);
     setDjangoCheckList(allDjangoSkills);
     setExpressCheckList(allExpressSkills);
-  }
+  };
 
   async function resetButton(entireCheckList) {
-    await checkListAPI.resetButton(entireCheckList)
-    await djangoListAPI.resetButton(entireCheckList)
-    await expressListAPI.resetButton(entireCheckList)
-    const newlyResetList = await checkListAPI.getAll()
-    const resetDjangoList = await djangoListAPI.getAll()
-    const resetExpressList = await expressListAPI.getAll()
-    setCheckList(newlyResetList)
+    await checkListAPI.resetButton(entireCheckList);
+    await djangoListAPI.resetButton(entireCheckList);
+    await expressListAPI.resetButton(entireCheckList);
+    const newlyResetList = await checkListAPI.getAll();
+    const resetDjangoList = await djangoListAPI.getAll();
+    const resetExpressList = await expressListAPI.getAll();
+    setCheckList(newlyResetList);
     setDjangoCheckList(resetDjangoList);
     setExpressCheckList(resetExpressList);
   }
@@ -80,13 +74,13 @@ export default function App() {
         const entireCheckList = await checkListAPI.getAll();
         const allDjangoSkills = await djangoListAPI.getAll();
         const allExpressSkills = await expressListAPI.getAll();
-        setCheckList(entireCheckList)
+        setCheckList(entireCheckList);
         setDjangoCheckList(allDjangoSkills);
         setExpressCheckList(allExpressSkills);
       }
     };
     getAllItems();
-  }, [user])
+  }, [user]);
 
   return (
     <main className="App">
@@ -122,7 +116,7 @@ export default function App() {
       }
     </main>
   );
-}
+};
 
 
 

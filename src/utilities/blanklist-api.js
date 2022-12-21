@@ -23,7 +23,7 @@ export async function updateListItem(booleanData, id) {
 }
 
 export async function resetButton(entireCheckList) {
-  return sendRequest(`${BASE_URL}/reset`, 'PUT', entireCheckList);
+  return sendRequest(`${BASE_URL}/reset/blanklist`, 'PUT', entireCheckList);
 }
 
 // /api/blanklist/${id}/update

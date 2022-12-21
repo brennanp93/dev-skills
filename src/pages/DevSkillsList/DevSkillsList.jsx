@@ -22,7 +22,7 @@ export default function CheckList({ updateBoolean, djangoList, expressList, rese
     <>
       <h1 className="checklist-name ">{checklist}&nbsp;Checklist</h1>
       {/* <div className='checklist-box'> */}
-      <MDBContainer breakpoint="sm" className="square border border-2 border-dark square rounded-7 ps-5 pe-5  " >
+      <MDBContainer breakpoint="sm" className="square border border-2 border-dark square rounded-7 ps-5 pe-5" >
         <MDBTypography >
           {checklist === 'Django' ?
             <h5><a className="text-dark text-decoration-underline" href={`${djangoDocs}`} target='_blank'>Click Here to view the Django Documentation</a></h5>

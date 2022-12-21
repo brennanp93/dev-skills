@@ -134,12 +134,15 @@ p.error-message {
   padding: 1rem;
 }
 
-/* footer {
-position:static;
+footer {
+height: 5%;
+position:sticky;
+background-color: #A0A6B1;
+border-top: solid white 2px;
 left:0;
 bottom:0;
 right:0;
-} */
+}
 
 button {
   margin: 5px;

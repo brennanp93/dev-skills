@@ -22,4 +22,4 @@ export default function AuthPage({ setUser }) {
       </MDBContainer>
     </main>
   );
-}
+};

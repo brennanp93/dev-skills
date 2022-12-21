@@ -20,7 +20,9 @@ export default function NewCheckListPage({ resetButton, checkList, addCheckListI
     // console.log(checkList[idx], id)
   }
 
-  // function handleResetButton() {
+  // async function resetButton(checkList) {
+  //      await checkListAPI.resetButton(entireCheckList);
+
   //   resetButton(checkList)
   //   // console.log(checkList)
   // }
