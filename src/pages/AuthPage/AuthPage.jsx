@@ -12,7 +12,7 @@ export default function AuthPage({ setUser }) {
   return (
     <main >
       <MDBContainer className="position-absolute top-50 start-50 translate-middle  ">
-        <h1>Welcome To Your Dev Skills checklist</h1>
+        <h1>Welcome To Your Dev Skills Checklist</h1>
         <MDBBtn onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</MDBBtn>
         {showSignUp ?
           <SignUpForm setUser={setUser} />

@@ -14,7 +14,7 @@ async function reset(req, res) {
 }
 
 async function index(req, res) {
-    const entireCheckList = await ExpressList.find({});
+    const entireCheckList = await ExpressList.find({}).sort({sortOrder: 1});
     res.json(entireCheckList)
 }
 
