@@ -17,37 +17,3 @@ const checkListSchema = new Schema({
 });
 
 module.exports = mongoose.model('BlankList', checkListSchema)
-
-
-
-
-
-
-
-
-// const stepsSchema = new Schema({
-//     stepTitle: String,
-//     description: String,
-//     terminalCommand: String,
-//     completed: Boolean
-
-// }, {
-//     timestamps: true
-// });
-
-
-
-// const checkListSchema = new Schema({
-//     name: String,
-//     listDescription: String,
-//     website: String,
-//     steps: [stepsSchema],
-//     user: {
-//         type: Schema.Types.ObjectId,
-//         ref: 'User'
-//     }
-// }, {
-//     timestamps: true
-// });
-
-// module.exports = mongoose.model('BlankList', checkListSchema)
