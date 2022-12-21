@@ -67,7 +67,7 @@ export default function AddItemForm({ addCheckListItem }) {
             pattern=".{2,}"
           />
         </div>
-        <div>
+        {/* <div>
           <MDBInput className="col-xs-4"
             autoComplete="off"
             name="terminalCommand"
@@ -78,7 +78,7 @@ export default function AddItemForm({ addCheckListItem }) {
             // required
             pattern=".{2,}"
           />
-        </div>
+        </div> */}
         <MDBBtn color="dark" type="submit" className="mt-3">Add To Do</MDBBtn >
       </form>
     </div>
