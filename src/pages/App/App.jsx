@@ -56,21 +56,21 @@ export default function App() {
     setExpressCheckList(allExpressSkills);
   };
 
-async function resetCheckList(checkList){
-  await checkListAPI.resetButton(checkList);
-  const newlyResetList = await checkListAPI.getAll();
-  setCheckList(newlyResetList);
-}
-async function resetDjangoList(djangoList){
-  await djangoListAPI.resetButton(djangoList);
-  const newlyResetList = await djangoListAPI.getAll();
-  setDjangoCheckList(newlyResetList);
-}
-async function resetExpressList(expressList){
-  await expressListAPI.resetButton(expressList);
-  const newlyResetList = await expressListAPI.getAll();
-  setExpressCheckList(newlyResetList);
-}
+  async function resetCheckList(checkList) {
+    await checkListAPI.resetButton(checkList);
+    const newlyResetList = await checkListAPI.getAll();
+    setCheckList(newlyResetList);
+  }
+  async function resetDjangoList(djangoList) {
+    await djangoListAPI.resetButton(djangoList);
+    const newlyResetList = await djangoListAPI.getAll();
+    setDjangoCheckList(newlyResetList);
+  }
+  async function resetExpressList(expressList) {
+    await expressListAPI.resetButton(expressList);
+    const newlyResetList = await expressListAPI.getAll();
+    setExpressCheckList(newlyResetList);
+  }
 
   // async function resetButton(entireCheckList) {
   //   await checkListAPI.resetButton(entireCheckList);
@@ -110,7 +110,6 @@ async function resetExpressList(expressList){
               deleteListItem={deleteListItem}
               updateListItem={updateListItem}
               updateBoolean={updateBoolean}
-              // resetButton={resetButton}
               resetCheckList={resetCheckList}
             />
             }
@@ -120,7 +119,6 @@ async function resetExpressList(expressList){
               updateBoolean={updateBoolean}
               expressList={expressList}
               djangoList={djangoList}
-              // resetButton={resetButton}
               resetDjangoList={resetDjangoList}
               resetExpressList={resetExpressList}
             />} />
