@@ -48,7 +48,7 @@ export default class SignUpForm extends Component {
           <MDBInput className='mb-4' type='email' label='Email address' name='email' value={this.state.email} onChange={this.handleChange} required />
           <MDBInput className='mb-4' type='password' label='Password' name='password' value={this.state.password} onChange={this.handleChange} required />
           <MDBInput className='mb-4' type='password' label='Confirm Password' name='confirm' value={this.state.confirm} onChange={this.handleChange} required />
-          <MDBBtn type='submit' block>Sign in</MDBBtn>
+          <MDBBtn color="dark" type='submit' block>Sign in</MDBBtn>
         </form>
         <p className="error-message">&nbsp;{this.state.error}</p>
       </MDBContainer>

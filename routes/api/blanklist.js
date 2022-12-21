@@ -5,7 +5,6 @@ const blankListCtrl = require('../../controllers/api/blanklist')
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 
-
 // GET /api/blanklist
 router.get('/', ensureLoggedIn,  blankListCtrl.index);
 
@@ -23,6 +22,5 @@ router.delete('/:id', ensureLoggedIn, blankListCtrl.delete);
 
 // POST /api/blanklist
 router.post('/', ensureLoggedIn, blankListCtrl.create);
-
 
 module.exports = router;

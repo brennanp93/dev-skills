@@ -1,5 +1,5 @@
 /* CSS Custom Properties */
-:root {
+/* :root {
   --white: #FFFFFF;
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
@@ -13,7 +13,7 @@
   --dark-grey: #5D5C61;
   --light-grey: #938E93;
   --tan: #B1A296;
-}
+} */
 
 
 /* *,
@@ -22,14 +22,14 @@
   box-sizing: border-box;
 } */
 
-body {
+/* body {
   margin: 0;
   font-family: 'Chivo Mono', monospace;
   display: grid;
   grid-template-rows: 50px 1fr 50px;
   background-color: var(--tan-2);
-  /* height: 100vh; */
-}
+  height: 100%;
+} */
   /* padding: 2vmin; */
   /* height: 100%; */
 
@@ -38,26 +38,22 @@ body {
   display: grid;
 } */
 
-.checklist-name {
 
-  /* display: grid; */
-  /* margin: 10%; */
-  padding: 0;
-}
 
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
 
-.reset-btn {
+
+/* .reset-btn {
   height:fit-content;
   background-color: rgb(199, 8, 8);
   color: white;
   font-family: 'Chivo Mono', monospace;
   max-width: fit-content;
   border: solid black 2px;
-}
+} */
 
 /* 
 #root {
@@ -135,13 +131,20 @@ p.error-message {
 }
 
 footer {
+justify-self: auto;
 height: 5%;
-position:sticky;
+position: fixed;
 background-color: #A0A6B1;
 border-top: solid white 2px;
 left:0;
 bottom:0;
 right:0;
+margin-top: 20px;
+}
+
+footer > div {
+  align-items: center;
+  margin: 10px 2% 0px auto;
 }
 
 button {

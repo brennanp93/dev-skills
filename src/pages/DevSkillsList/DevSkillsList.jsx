@@ -31,9 +31,9 @@ export default function CheckList({ updateBoolean, djangoList, expressList, rese
           }
         </MDBTypography>
         {checklist === 'Django' ?
-          <MDBBtn color='dark' onClick={() => resetDjangoList(oneStep)} >Reset List</MDBBtn>
+          <MDBBtn className='mb-3' color='dark' onClick={() => resetDjangoList(oneStep)} >Reset List</MDBBtn>
           :
-          <MDBBtn color='dark' onClick={() => resetExpressList(oneStep)} >Reset List</MDBBtn>}
+          <MDBBtn className='mb-3' color='dark' onClick={() => resetExpressList(oneStep)} >Reset List</MDBBtn>}
         {oneStep.map((step, idx) => (
           <>
             <MDBCard background='secondary' className='text-white mb-3 ' border='dark' key={step._id}>
