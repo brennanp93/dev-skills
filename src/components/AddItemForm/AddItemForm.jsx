@@ -39,6 +39,7 @@ export default function AddItemForm({ addCheckListItem }) {
         <form onSubmit={handleSubmit}>
           <div>
             <MDBInput
+              size='lg'
               autoComplete="off"
               name="stepTitle"
               value={addedItem.stepTitle}

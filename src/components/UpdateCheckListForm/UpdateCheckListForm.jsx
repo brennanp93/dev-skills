@@ -30,11 +30,13 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
           <form onSubmit={handleSubmit}>
             <div>
               <MDBInput
+                size='lg'
                 autoComplete="off"
                 name="stepTitle"
                 value={updatedCheckList.stepTitle}
                 onChange={handleChange}
                 placeholder="New To-Do"
+                label="Update To Do"
                 required
                 pattern=".{2,}"
               />
@@ -47,6 +49,7 @@ export default function UpdateCheckListForm({ checkList, updateListItem }) {
                 onChange={handleChange}
                 placeholder="Description"
                 pattern=".{2,}"
+                label="Description"
               />
             </div>
             <MDBBtn color='dark' type="submit">Update</MDBBtn>
