@@ -5,7 +5,7 @@ The Dev Skills checklist is a clean and lightweight way to help those new develo
 # Screenshots
 |   Description | Screenshot | 
   |:-------------:| -----------|
-  | <h3>Log In Page</h3> | <img src='https://i.imgur.com/lWrZieU.png'> |
+  | <h3>Log In Page</h3> | <img src='https://i.imgur.com/W7P2m23.png'> |
   | <h3 align="center">Home Page</h3> | <img src="https://i.imgur.com/fFWxKPD.png"/> |
   |<h3 align="center">Dev Skill List</h3>| <img src="https://i.imgur.com/vSTq2sD.png">
   |<h3 align="center">Create Your Own List</h3>| <img src="https://i.imgur.com/S8rNV74.png">
