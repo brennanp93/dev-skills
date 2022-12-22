@@ -4,7 +4,8 @@ import {
   MDBCardBody,
   MDBContainer,
   MDBCardTitle,
-  MDBCardLink
+  MDBCardLink,
+  MDBRipple
 } from 'mdb-react-ui-kit';
 
 export default function HomePage() {

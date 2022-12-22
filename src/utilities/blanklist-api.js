@@ -15,7 +15,6 @@ export async function deleteListItem(id) {
 
 export async function updateBoolean(booleanData, id) {
   return sendRequest(`${BASE_URL}/${id}`, 'PUT', booleanData);
-
 };
 
 export async function updateListItem(UpdateCheckListFormData, id) {
